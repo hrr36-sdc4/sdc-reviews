@@ -8,10 +8,28 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "seedDb": "node db/seed.js",
+    "test": "jest",
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch"
   },
   "dependencies": {
+    "bootstrap": "^4.2.1",
+    "express": "^4.16.4",
+    "knex": "^0.16.3",
+    "pg": "^7.8.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "webpack-dev": "^1.1.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "enzyme": "^3.8.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "faker": "^4.1.0",
+    "jest": "^24.1.0",
+    "jest-cli": "^24.1.0",
+    "puppeteer": "^1.12.2",
+    "sass": "^1.17.0",
+    "webpack": "^4.29.2"
   }
 }
