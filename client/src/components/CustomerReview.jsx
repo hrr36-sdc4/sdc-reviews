@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-const CustomerReivew = props => (
+const CustomerReview = props => (
   <li className="">
     {moment(props.post.createdAt)
       .startOf("day")
