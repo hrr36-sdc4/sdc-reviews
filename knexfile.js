@@ -5,6 +5,12 @@ module.exports = {
     client: "postgresql",
     connection: {
       database: "reviews"
+    },
+    migrations: {
+      directory: __dirname + "/migrations"
+    },
+    seeds: {
+      directory: __dirname + "/seeds"
     }
   },
 
