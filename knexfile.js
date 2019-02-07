@@ -1,5 +1,3 @@
-// Update with your config settings.
-
 module.exports = {
   development: {
     client: "postgresql",
@@ -7,10 +5,10 @@ module.exports = {
       database: "reviews"
     },
     migrations: {
-      directory: __dirname + "/migrations"
+      directory: __dirname + "database-pg/migrations"
     },
     seeds: {
-      directory: __dirname + "/seeds"
+      directory: __dirname + "database-pg/seeds"
     }
   },
 
