@@ -10,27 +10,27 @@ const createFakeUser = () => ({
     max: 100
   }),
   accuracy: faker.random.number({
-    min: 0,
+    min: 3,
     max: 5
   }),
   communication: faker.random.number({
-    min: 0,
+    min: 3,
     max: 5
   }),
   cleanliness: faker.random.number({
-    min: 0,
+    min: 3,
     max: 5
   }),
   location: faker.random.number({
-    min: 0,
+    min: 3,
     max: 5
   }),
   check_in: faker.random.number({
-    min: 0,
+    min: 1,
     max: 5
   }),
   value: faker.random.number({
-    min: 0,
+    min: 2,
     max: 5
   }),
   listing_id: faker.random.number({
