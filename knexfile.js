@@ -2,19 +2,18 @@
 
 module.exports = {
   development: {
-    // create local db and edit this section
-    client: "sqlite3",
+    client: "postgresql",
     connection: {
-      filename: "./dev.sqlite3"
+      database: "reviews"
     }
   },
 
   staging: {
     client: "postgresql",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
+      database: "reviews",
+      user: "root",
+      password: ""
     },
     pool: {
       min: 2,
@@ -28,9 +27,9 @@ module.exports = {
   production: {
     client: "postgresql",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
+      database: "reviews",
+      user: "root",
+      password: ""
     },
     pool: {
       min: 2,
