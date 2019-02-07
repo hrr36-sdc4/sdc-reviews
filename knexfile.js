@@ -5,10 +5,10 @@ module.exports = {
       database: "reviews"
     },
     migrations: {
-      directory: __dirname + "database-pg/migrations"
+      directory: __dirname + "/database-pg/migrations"
     },
     seeds: {
-      directory: __dirname + "database-pg/seeds"
+      directory: __dirname + "/database-pg/seeds"
     }
   },
 
