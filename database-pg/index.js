@@ -8,6 +8,19 @@ const findMostRecent10 = function() {
   console.log("accessing postgres db.....");
   return knex
     .from("reviews")
+    .orderBy("created_at", "desc")
+    .limit(10)
+    .then(records => {
+      return records;
+    });
+  //   console.log(queryString);
+};
+
+const findMostRelevant10 = function() {
+  console.log("accessing postgres db.....");
+  return knex
+    .from("reviews")
+    .orderBy("user_rating", "desc")
     .limit(10)
     .then(records => {
       return records;
@@ -17,4 +30,4 @@ const findMostRecent10 = function() {
 
 knex.migrate.latest([config]);
 
-module.exports = { findMostRecent10 };
+module.exports = { findMostRecent10, findMostRelevant10 };
