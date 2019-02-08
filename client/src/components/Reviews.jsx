@@ -4,7 +4,7 @@ import CustomerReview from "./CustomerReview.jsx";
 const Reviews = props => (
   <ul>
     {props.reviews.map(review => (
-      <CustomerReview review={review} />
+      <CustomerReview key={review.review_id} review={review} />
     ))}
   </ul>
 );

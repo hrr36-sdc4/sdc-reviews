@@ -21,6 +21,7 @@ class App extends React.Component {
     try {
       const response = await axios.get("http://localhost:3000/rooms/reviews");
       console.log("REVIEWS RECEIVED FROM DB!");
+      console.log(response.data);
       this.setupReviews(response.data);
     } catch (error) {
       console.error(error);
