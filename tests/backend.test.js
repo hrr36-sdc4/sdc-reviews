@@ -1,38 +1,64 @@
+const { findMostRelevant10 } = require("../database-pg/index.js");
+const axios = require("axios");
+var request = require("request");
 var config = require("../knexfile.js");
 var env = "development";
 var knex = require("knex")(config[env]);
-const { findMostRelevant10 } = require("../database-pg/index.js");
-var request = require("request");
 
-describe("testing db", () => {
-  afterAll(() => knex.destroy());
+describe("Testing Postgres database", () => {
+  // beforeEach(() => {
 
-  test.only("gets 10 most relevant users from db", async done => {
-    let results = await findMostRelevant10();
-    expect(results).toHaveLength(10);
-    done();
+  // });
+
+  afterAll(() => knex.destroy()); // knex.migrate.lates
+  // knex.migrate.latest([config]);
+  // afterAll(() => setTimeout(() => knex.destroy(), 2000));
+
+  test("gets 10 most relevant users from db", async done => {
+    await findMostRelevant10().then(result => {
+      expect(result).toHaveLength(10);
+      done();
+    });
   });
 
-  test.only("each users accuracy rating is between 1 - 5", async done => {
-    let results = await findMostRelevant10();
-    var accurate = 0;
-    for (let i = 0; i < results.length; i++) {
-      if (results[i].accuracy > 0 && results[i].accuracy < 6) {
-        accurate++;
+  test("each users accuracy rating is between 1 - 5", async done => {
+    await findMostRelevant10().then(results => {
+      var accurate = 0;
+      for (let i = 0; i < results.length; i++) {
+        if (results[i].accuracy > 0 && results[i].accuracy < 6) {
+          accurate++;
+        }
       }
-    }
-    expect(accurate).toBe(10);
-    done();
+      expect(accurate).toBe(10);
+      done();
+    });
   });
 
-  test.only("each users should have a different review id", async done => {
-    let results = await findMostRelevant10();
-    let accurate = false;
-    if (results[0].review_id !== results[1].review_id) {
-      accurate = !accurate;
-    }
-    expect(accurate).toBeTruthy();
-    done();
+  test("each users should have a different review id", async done => {
+    await findMostRelevant10().then(results => {
+      let accurate = false;
+      if (results[0].review_id !== results[1].review_id) {
+        accurate = !accurate;
+      }
+      expect(accurate).toBeTruthy();
+      done();
+    });
+  });
+});
+
+describe("testing api calls", () => {
+  test("should be able to GET request to api and grab most recent user reviews", () => {
+    axios.get("http://localhost:3000/rooms/reviews/recent").then(results => {
+      let parsed_results = JSON.parse(results);
+      expects(parsed_results).toBe(Array);
+    });
+  });
+
+  test("should be able to GET request to api and grab most relevant user reviews", () => {
+    axios.get("http://localhost:3000/rooms/reviews/recent").then(results => {
+      let parsed_results = JSON.parse(results);
+      expects(parsed_results[0].user_rating).toBe(100);
+    });
   });
 });
 
