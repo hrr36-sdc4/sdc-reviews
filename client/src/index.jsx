@@ -19,7 +19,9 @@ class App extends React.Component {
 
   async grabReviews() {
     try {
-      const response = await axios.get("http://localhost:3000/rooms/reviews");
+      const response = await axios.get(
+        "http://localhost:3000/rooms/reviews/recent"
+      );
       console.log("REVIEWS RECEIVED FROM DB!");
       console.log(response.data);
       this.setupReviews(response.data);
