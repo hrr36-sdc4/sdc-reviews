@@ -15,6 +15,7 @@ class SearchReviews extends React.Component {
       this.setState({
         value: event.target.value
       });
+      event.target.value = "";
     }
   }
 

@@ -35,12 +35,12 @@ app.get("/rooms/reviews/relevant", function(req, res) {
 });
 
 app.post("/rooms/reviews/filter", function(req, res) {
-  console.log(req);
+  // console.log(req.body.data);
   // SELECT * FROM reviews where description like '%Qui%'
-  // findFilteredReviews(req.data).then(records => {
-  //   // console.log(records);
-  return res.status(200).send(req.body);
-  // });
+  findFilteredReviews(req.body.data).then(records => {
+    // console.log(records);
+    return res.status(200).send(records);
+  });
 });
 
 app.listen(port);

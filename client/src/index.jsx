@@ -43,15 +43,19 @@ class App extends React.Component {
     });
   }
 
-  searchReviewListings(query) {
-    axios
-      .post("http://localhost:3000/rooms/reviews/filter", { data: query })
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+  async searchReviewListings(query) {
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/rooms/reviews/filter",
+        {
+          data: query
+        }
+      );
+      // bold the query word to see it in browser
+      this.setupReviews(res.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   render() {
