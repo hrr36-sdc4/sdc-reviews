@@ -9,12 +9,13 @@ class SearchReviews extends React.Component {
     };
   }
 
-  searchAction(event) {
-    console.log(this.props.handleSearchInput(event.target.value));
-    this.props.handleSearchInput(event.target.value);
-    this.setState({
-      value: event.target.value
-    });
+  searchAction(e) {
+    if (e.key === "Enter") {
+      this.props.handleSearchInput(event.target.value);
+      this.setState({
+        value: event.target.value
+      });
+    }
   }
 
   render() {
@@ -25,7 +26,7 @@ class SearchReviews extends React.Component {
             className="form-control"
             type="text"
             value={this.state.value}
-            onChange={this.searchAction.bind(this)}
+            onKeyPress={this.searchAction.bind(this)}
           />
           <button className="btn">
             <span>Submit</span>
