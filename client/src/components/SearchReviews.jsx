@@ -10,6 +10,7 @@ class SearchReviews extends React.Component {
   }
 
   searchAction(event) {
+    console.log(this.props.handleSearchInput(event.target.value));
     this.props.handleSearchInput(event.target.value);
     this.setState({
       value: event.target.value
@@ -26,6 +27,9 @@ class SearchReviews extends React.Component {
             value={this.state.value}
             onChange={this.searchAction.bind(this)}
           />
+          <button className="btn">
+            <span>Submit</span>
+          </button>
         </div>
         <div className="dropdown-menu">
           <select name="" id="">

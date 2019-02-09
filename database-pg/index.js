@@ -4,12 +4,11 @@ var knex = require("knex")(config[env]);
 
 module.exports = knex;
 
-const findMostRecent10 = function() {
+const findMostRecent = function() {
   console.log("accessing postgres db.....");
   return knex
     .from("reviews")
     .orderBy("created_at", "desc")
-    .limit(10)
     .then(records => {
       return records;
     });
@@ -28,6 +27,16 @@ const findMostRelevant10 = function() {
   //   console.log(queryString);
 };
 
+// where("items.itemName", "like", `%${searchCriteria.searchTerm}%`);
+const findFilteredReviews = function(query) {
+  return knex
+    .from("reviews")
+    .where("description", "like", `%${query}%`)
+    .then(records => {
+      return records;
+    });
+};
+
 knex.migrate.latest([config]);
 
-module.exports = { findMostRecent10, findMostRelevant10 };
+module.exports = { findMostRecent, findMostRelevant10, findFilteredReviews };
