@@ -4,12 +4,11 @@ var knex = require("knex")(config[env]);
 
 module.exports = knex;
 
-const findMostRecent10 = function() {
+const findMostRecent = function() {
   console.log("accessing postgres db.....");
   return knex
     .from("reviews")
     .orderBy("created_at", "desc")
-    .limit(10)
     .then(records => {
       return records;
     });
@@ -30,4 +29,4 @@ const findMostRelevant10 = function() {
 
 knex.migrate.latest([config]);
 
-module.exports = { findMostRecent10, findMostRelevant10 };
+module.exports = { findMostRecent, findMostRelevant10 };

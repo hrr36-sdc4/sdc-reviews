@@ -3,7 +3,7 @@ import ReviewEntry from "./ReviewEntry.jsx";
 
 const ReviewList = props => (
   <ul>
-    {props.reviews.map(review => (
+    {props.recent.map(review => (
       <ReviewEntry key={review.review_id} review={review} />
     ))}
   </ul>

@@ -12,6 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      recent: [],
       reviews: []
     };
     this.setupReviews = this.setupReviews.bind(this);
@@ -27,7 +28,7 @@ class App extends React.Component {
         "http://localhost:3000/rooms/reviews/recent"
       );
       console.log("REVIEWS RECEIVED FROM DB!");
-      console.log(response.data);
+      // console.log(response.data);
       this.setupReviews(response.data);
     } catch (error) {
       console.error(error);
@@ -35,7 +36,9 @@ class App extends React.Component {
   }
 
   setupReviews(data) {
+    var recent = data.slice(0, 10);
     this.setState({
+      recent: recent,
       reviews: data
     });
   }
@@ -44,9 +47,9 @@ class App extends React.Component {
     return (
       <div className="ReviewsContainer">
         <ReviewCount reviewLength={this.state.reviews.length} />
-        <ConditionsRatings />
+        <ConditionsRatings reviews={this.state.reviews} />
         <SearchReviews />
-        <ReviewList reviews={this.state.reviews} />
+        <ReviewList recent={this.state.recent} />
       </div>
     );
   }
