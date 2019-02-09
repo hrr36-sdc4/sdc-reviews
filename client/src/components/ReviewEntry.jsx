@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-const CustomerReview = props => (
+const ReviewEntry = props => (
   <li className="">
     <img className="img" src={props.review.image_url} alt="" />
     <div className="username">{props.review.username}</div>
@@ -12,4 +12,4 @@ const CustomerReview = props => (
   </li>
 );
 
-export default CustomerReview;
+export default ReviewEntry;

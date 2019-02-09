@@ -1,8 +1,12 @@
 // main js file where the rendering will happen and all the components are imported here
 import React from "react";
 import ReactDOM from "react-dom";
-import Reviews from "./components/Reviews.jsx";
 import axios from "axios";
+
+import ReviewCount from "./components/ReviewCount.jsx";
+import ConditionsRatings from "./components/ConditionsRatings.jsx";
+import SearchReviews from "./components/SearchReviews.jsx";
+import ReviewList from "./components/ReviewList.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -38,8 +42,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Reviews reviews={this.state.reviews} />
+      <div className="ReviewsContainer">
+        <ReviewCount reviewLength={this.state.reviews.length} />
+        <ConditionsRatings />
+        <SearchReviews />
+        <ReviewList reviews={this.state.reviews} />
       </div>
     );
   }

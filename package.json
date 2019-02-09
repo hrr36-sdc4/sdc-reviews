@@ -11,7 +11,7 @@
     "seedDb": "node database-pg/seed.js",
     "test": "jest --forceExit",
     "start": "nodemon server/index.js",
-    "build": "webpack -d --watch",
+    "dev:react": "webpack -d --watch",
     "build:webpack": "webpack-dev-server --config ./webpack.config.js --mode development",
     "sass": "sass --watch client/src/stylesheets:client/dist/stylesheets"
   },
