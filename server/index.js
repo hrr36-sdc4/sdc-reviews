@@ -4,7 +4,8 @@ const db = require("../database-pg/index.js");
 const bodyParser = require("body-parser");
 const {
   findMostRecent,
-  findMostRelevant10
+  findMostRelevant10,
+  findFilteredReviews
 } = require("../database-pg/index.js");
 
 const port = 3000;
@@ -31,6 +32,15 @@ app.get("/rooms/reviews/relevant", function(req, res) {
     console.log("retrieved relevant reviews from DB!!!");
     return res.status(200).send(records);
   });
+});
+
+app.post("/rooms/reviews/filter", function(req, res) {
+  console.log(req);
+  // SELECT * FROM reviews where description like '%Qui%'
+  // findFilteredReviews(req.data).then(records => {
+  //   // console.log(records);
+  return res.status(200).send(req.body);
+  // });
 });
 
 app.listen(port);
