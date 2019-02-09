@@ -15,6 +15,7 @@ class SearchReviews extends React.Component {
       this.setState({
         value: event.target.value
       });
+      event.target.value = "";
     }
   }
 
@@ -25,12 +26,9 @@ class SearchReviews extends React.Component {
           <input
             className="form-control"
             type="text"
-            value={this.state.value}
+            placeholder="Search..."
             onKeyPress={this.searchAction.bind(this)}
           />
-          <button className="btn">
-            <span>Submit</span>
-          </button>
         </div>
         <div className="dropdown-menu">
           <select name="" id="">
