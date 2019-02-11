@@ -6,6 +6,8 @@ import axios from "axios";
 import ReviewCount from "./components/ReviewCount.jsx";
 import ConditionsRatings from "./components/ConditionsRatings.jsx";
 import SearchReviews from "./components/SearchReviews.jsx";
+import DropdownSearch from "./components/DropdownSearch.jsx";
+
 import ReviewList from "./components/ReviewList.jsx";
 
 class App extends React.Component {
@@ -43,21 +45,27 @@ class App extends React.Component {
     });
   }
 
-  resetReviews(data) {
+  filterReviews(data) {
     var recent = data.slice(0, 10);
     this.setState({
       recent: recent
     });
   }
 
-  async searchReviewListings(query) {
+  async queryReviewListings(query) {
     axios
       .get("http://localhost:3000/rooms/reviews/filter", {
         params: { data: query }
       })
       .then(res => {
-        this.resetReviews(res.data);
+        this.filterReviews(res.data);
       });
+  }
+
+  async customReviewListings(query) {
+    axios.get(`http://localhost:3000/rooms/reviews/${query}`).then(res => {
+      this.filterReviews(res.data);
+    });
   }
 
   calculateUserRatings(users) {
@@ -93,9 +101,14 @@ class App extends React.Component {
       <div className="ReviewsContainer">
         <ReviewCount reviewLength={this.state.reviews.length} />
         <ConditionsRatings ratings={ratings} reviews={this.state.reviews} />
-        <SearchReviews
-          handleSearchInput={this.searchReviewListings.bind(this)}
-        />
+        <div>
+          <SearchReviews
+            handleSearchInput={this.queryReviewListings.bind(this)}
+          />
+          <DropdownSearch
+            handleValueChange={this.customReviewListings.bind(this)}
+          />
+        </div>
         <ReviewList recent={this.state.recent} />
       </div>
     );

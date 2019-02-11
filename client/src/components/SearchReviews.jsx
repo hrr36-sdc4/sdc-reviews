@@ -22,21 +22,13 @@ class SearchReviews extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="search-bar form-inline">
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Search..."
-            onKeyPress={this.searchAction.bind(this)}
-          />
-        </div>
-        <div className="dropdown-menu">
-          <select name="" id="">
-            <option value="Most relevant">Most relevant</option>
-            <option value="Most recent">Most recent</option>
-          </select>
-        </div>
+      <div className="search-bar form-inline">
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Search..."
+          onKeyPress={this.searchAction.bind(this)}
+        />
       </div>
     );
   }
