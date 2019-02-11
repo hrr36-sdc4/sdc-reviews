@@ -34,11 +34,12 @@ app.get("/rooms/reviews/relevant", function(req, res) {
   });
 });
 
-app.post("/rooms/reviews/filter", function(req, res) {
-  // console.log(req.body.data);
+app.get("/rooms/reviews/filter", function(req, res) {
+  console.log("on server side!!!");
+  // console.log(req.query.data);
   // SELECT * FROM reviews where description like '%Qui%'
-  findFilteredReviews(req.body.data).then(records => {
-    // console.log(records);
+  findFilteredReviews(req.query.data).then(records => {
+    //   // console.log(records);
     return res.status(200).send(records);
   });
 });

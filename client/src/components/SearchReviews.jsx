@@ -11,6 +11,7 @@ class SearchReviews extends React.Component {
 
   searchAction(e) {
     if (e.key === "Enter") {
+      e.preventDefault();
       this.props.handleSearchInput(event.target.value);
       this.setState({
         value: event.target.value
