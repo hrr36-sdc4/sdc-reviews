@@ -1,4 +1,5 @@
 import React from "react";
+import Col from "react-bootstrap/Col";
 
 class SearchReviews extends React.Component {
   constructor(props) {
@@ -22,14 +23,14 @@ class SearchReviews extends React.Component {
 
   render() {
     return (
-      <div className="search-bar form-inline">
+      <Col className="search-bar form-inline">
         <input
           className="form-control"
           type="text"
           placeholder="Search..."
           onKeyPress={this.searchAction.bind(this)}
         />
-      </div>
+      </Col>
     );
   }
 }

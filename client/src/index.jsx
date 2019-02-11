@@ -2,6 +2,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import ReviewCount from "./components/ReviewCount.jsx";
 import ConditionsRatings from "./components/ConditionsRatings.jsx";
@@ -98,19 +101,19 @@ class App extends React.Component {
     var ratings = this.calculateUserRatings(this.state.reviews);
 
     return (
-      <div className="ReviewsContainer">
+      <Container className="ReviewsContainer">
         <ReviewCount reviewLength={this.state.reviews.length} />
         <ConditionsRatings ratings={ratings} reviews={this.state.reviews} />
-        <div>
+        <Row>
           <SearchReviews
             handleSearchInput={this.queryReviewListings.bind(this)}
           />
           <DropdownSearch
             handleValueChange={this.customReviewListings.bind(this)}
           />
-        </div>
+        </Row>
         <ReviewList recent={this.state.recent} />
-      </div>
+      </Container>
     );
   }
 }

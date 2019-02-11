@@ -1,4 +1,5 @@
 import React from "react";
+import Col from "react-bootstrap/Col";
 
 class DropdownSearch extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class DropdownSearch extends React.Component {
 
   render() {
     return (
-      <div className="dropdown-menu">
+      <Col xs={6} className="dropdown-menu">
         <select
           name="search"
           onChange={this.change.bind(this)}
@@ -27,7 +28,7 @@ class DropdownSearch extends React.Component {
           <option value="recent">Most recent</option>
           <option value="relevant">Most relevant</option>
         </select>
-      </div>
+      </Col>
     );
   }
 }
