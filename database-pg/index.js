@@ -12,7 +12,6 @@ const findMostRecent = function() {
     .then(records => {
       return records;
     });
-  //   console.log(queryString);
 };
 
 const findMostRelevant10 = function() {
@@ -24,10 +23,8 @@ const findMostRelevant10 = function() {
     .then(records => {
       return records;
     });
-  //   console.log(queryString);
 };
 
-// where("items.itemName", "like", `%${searchCriteria.searchTerm}%`);
 const findFilteredReviews = function(query) {
   return knex
     .from("reviews")
