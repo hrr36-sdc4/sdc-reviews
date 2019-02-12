@@ -1,4 +1,6 @@
 import React from "react";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 class CondtionsRow extends React.Component {
   render() {
@@ -15,13 +17,27 @@ class CondtionsRow extends React.Component {
     };
 
     return (
-      <div className={this.props.title}>
-        <span>{this.props.title}</span>
-        {fullStars(rating)}
-        {blankStars(5 - rating)}
-      </div>
+      <Row>
+        <Col className={this.props.title}>
+          <span>{this.props.title}</span>
+        </Col>
+
+        <Col>
+          {" "}
+          {fullStars(rating)}
+          {blankStars(5 - rating)}
+        </Col>
+      </Row>
     );
   }
 }
 
 export default CondtionsRow;
+
+{
+  /* <Col className={this.props.title}>
+        <span>{this.props.title}</span>
+        {fullStars(rating)}
+        {blankStars(5 - rating)}
+      </Col> */
+}

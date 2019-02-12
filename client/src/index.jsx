@@ -5,11 +5,13 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 
 import ReviewCount from "./components/ReviewCount.jsx";
 import ConditionsRatings from "./components/ConditionsRatings.jsx";
 import SearchReviews from "./components/SearchReviews.jsx";
-import DropdownSearch from "./components/DropdownSearch.jsx";
+import DropDownSearch from "./components/DropDownSearch.jsx";
 
 import ReviewList from "./components/ReviewList.jsx";
 
@@ -102,17 +104,23 @@ class App extends React.Component {
 
     return (
       <Container className="ReviewsContainer">
-        <ReviewCount reviewLength={this.state.reviews.length} />
-        <ConditionsRatings ratings={ratings} reviews={this.state.reviews} />
+        <Row>
+          <ReviewCount reviewLength={this.state.reviews.length} />
+        </Row>
+        <Row>
+          <ConditionsRatings ratings={ratings} reviews={this.state.reviews} />
+        </Row>
         <Row>
           <SearchReviews
             handleSearchInput={this.queryReviewListings.bind(this)}
           />
-          <DropdownSearch
+          <DropDownSearch
             handleValueChange={this.customReviewListings.bind(this)}
           />
         </Row>
-        <ReviewList recent={this.state.recent} />
+        <Row>
+          <ReviewList recent={this.state.recent} />
+        </Row>
       </Container>
     );
   }
