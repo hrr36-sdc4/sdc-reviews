@@ -21,7 +21,7 @@ class DropDownSearch extends React.Component {
 
   render() {
     return (
-      <Col className="dropdown" xs sm md lg="6">
+      <Col className="dropdown-column" xs sm md lg="3">
         <DropdownButton
           variant="light"
           id="dropdown-basic-button"

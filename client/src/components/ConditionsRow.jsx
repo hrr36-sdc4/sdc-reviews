@@ -21,7 +21,7 @@ class CondtionsRow extends React.Component {
     };
 
     return (
-      <Row>
+      <Row className="top-star-spacing">
         <Col className={this.props.title}>
           <span>{this.props.title}</span>
         </Col>

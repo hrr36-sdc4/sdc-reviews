@@ -6,6 +6,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  font-size: 18px;
   color: #4b4b4b;
 }
 
@@ -17,15 +18,47 @@ body {
   font-weight: 500;
   color: grey;
   font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 .review-entry {
   list-style-type: none;
 }
 
-.bottom-design {
-  margin: 30px 0 20px 0;
+.bottom-spacing {
+  margin: 5px 0 24px 0;
   border-bottom: 1px solid rgba(24, 22, 22, 0.11);
+  padding-bottom: 24px;
+}
+
+.top-spacing {
+  margin-top: 25px;
+}
+
+.top-star-spacing {
+  margin-top: 10px;
+}
+
+.rounded-circle {
+  max-width: 60px;
+}
+
+.images {
+  max-width: 100px;
+}
+
+.description-spacing {
+  margin-bottom: 15px;
+}
+
+.btn-light {
+  border-color: #2f2c2c33;
+  color: #212529;
+  background-color: #f8f9fa00;
+}
+
+.btn-toolbar {
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=style.css.map */

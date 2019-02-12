@@ -14,7 +14,7 @@ class ReviewCount extends React.Component {
     };
 
     return (
-      <Col xs={12} md={12} lg={12} className="bottom-design">
+      <Col xs={12} md={12} lg={12} className="bottom-spacing">
         <h3 className="ReviewCount">
           {console.log(average)}
           {this.props.reviewLength} Reviews {fullStars(average)}

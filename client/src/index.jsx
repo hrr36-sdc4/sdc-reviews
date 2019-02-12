@@ -118,7 +118,7 @@ class App extends React.Component {
         <Row>
           <ConditionsRatings ratings={ratings} reviews={this.state.reviews} />
         </Row>
-        <Row className="bottom-design">
+        <Row className="bottom-spacing top-spacing btn-toolbar">
           <SearchReviews
             handleSearchInput={this.queryReviewListings.bind(this)}
           />

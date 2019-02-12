@@ -23,7 +23,7 @@ class SearchReviews extends React.Component {
 
   render() {
     return (
-      <Col className="search-bar form-inline" xs sm md lg="6">
+      <Col xs sm md lg="3">
         <input
           className="form-control"
           type="text"
