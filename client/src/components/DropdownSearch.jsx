@@ -15,20 +15,21 @@ class DropDownSearch extends React.Component {
   change(e) {
     this.props.handleValueChange(e);
     e === "recent"
-      ? this.setState({ value: "Most Recent" })
-      : this.setState({ value: "Most Relevant" });
+      ? this.setState({ value: "Most recent" })
+      : this.setState({ value: "Most relevant" });
   }
 
   render() {
     return (
-      <Col className="dropdown">
+      <Col className="dropdown" xs sm md lg="6">
         <DropdownButton
+          variant="light"
           id="dropdown-basic-button"
           title={this.state.value}
           onSelect={this.change.bind(this)}
         >
-          <Dropdown.Item eventKey="recent">Most Recent</Dropdown.Item>
-          <Dropdown.Item eventKey="relevant">Most Relevant</Dropdown.Item>
+          <Dropdown.Item eventKey="recent">Most recent</Dropdown.Item>
+          <Dropdown.Item eventKey="relevant">Most relevant</Dropdown.Item>
         </DropdownButton>
       </Col>
     );

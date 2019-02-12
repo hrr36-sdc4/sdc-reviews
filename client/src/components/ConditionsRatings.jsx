@@ -9,7 +9,7 @@ class ConditionsRatings extends React.Component {
     return (
       <Container className="ConditionsRatings">
         <Row>
-          <Col className="ratings-container">
+          <Col xs={12} sm={12} md={6} lg={6}>
             <ConditionsRow
               title={"Accuracy"}
               rating={this.props.ratings["accuracy"]}
@@ -23,7 +23,7 @@ class ConditionsRatings extends React.Component {
               rating={this.props.ratings["cleanliness"]}
             />
           </Col>
-          <Col className="ratings-container">
+          <Col xs={12} sm={12} md={6} lg={6}>
             {" "}
             <ConditionsRow
               title={"Location"}

@@ -1,0 +1,36 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: rgb(75, 75, 75);
+
+@function black($opacity) {
+  @return rgba(black, $opacity);
+}
+
+.stars {
+  font: 100% $font-stack;
+  color: rgb(15, 114, 118);
+  font-size: 20px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: $primary-color;
+}
+
+.ReviewCount {
+  font-weight: 700;
+}
+
+.form-control {
+  font-weight: 500;
+  color: grey;
+  font-size: 14px;
+}
+
+.review-entry {
+  list-style-type: none;
+}
+
+.bottom-design {
+  margin: 30px 0 20px 0;
+  border-bottom: 1px solid rgba(24, 22, 22, 0.11);
+}

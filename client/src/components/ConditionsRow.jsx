@@ -7,7 +7,11 @@ class CondtionsRow extends React.Component {
     const rating = this.props.rating || 0;
 
     const fullStars = data => {
-      return [...Array(data)].map((x, i) => <span key={i}>&#9733;</span>);
+      return [...Array(data)].map((x, i) => (
+        <span className="stars" key={i}>
+          &#9733;
+        </span>
+      ));
     };
 
     const blankStars = data => {

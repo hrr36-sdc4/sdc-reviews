@@ -23,11 +23,11 @@ class SearchReviews extends React.Component {
 
   render() {
     return (
-      <Col className="search-bar form-inline">
+      <Col className="search-bar form-inline" xs sm md lg="6">
         <input
           className="form-control"
           type="text"
-          placeholder="Search..."
+          placeholder="Search reviews"
           onKeyPress={this.searchAction.bind(this)}
         />
       </Col>

@@ -13,7 +13,7 @@
     "start": "nodemon server/index.js",
     "dev:react": "webpack -d --watch",
     "build:webpack": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "sass": "sass --watch client/src/stylesheets:client/dist/stylesheets"
+    "sass": "sass --watch client/src/stylesheets/style.scss:client/dist/stylesheets/style.css"
   },
   "dependencies": {
     "axios": "^0.18.0",

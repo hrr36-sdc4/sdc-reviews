@@ -74,6 +74,7 @@ class App extends React.Component {
   }
 
   calculateUserRatings(users) {
+    var totalAverage = 0;
     var ratings = {
       accuracy: 0,
       communication: 0,
@@ -94,8 +95,12 @@ class App extends React.Component {
     for (var key in ratings) {
       // find the average rating from the users
       ratings[key] = Math.ceil(ratings[key] / users.length);
+      totalAverage += ratings[key];
     }
-
+    ratings["totalAverage"] = Math.ceil(totalAverage / 6);
+    if (ratings["totalAverage"] === NaN) {
+      ratings["totalAverage"] = 0;
+    }
     return ratings;
   }
 
@@ -105,12 +110,15 @@ class App extends React.Component {
     return (
       <Container className="ReviewsContainer">
         <Row>
-          <ReviewCount reviewLength={this.state.reviews.length} />
+          <ReviewCount
+            reviewLength={this.state.reviews.length}
+            average={ratings["totalAverage"]}
+          />
         </Row>
         <Row>
           <ConditionsRatings ratings={ratings} reviews={this.state.reviews} />
         </Row>
-        <Row>
+        <Row className="bottom-design">
           <SearchReviews
             handleSearchInput={this.queryReviewListings.bind(this)}
           />
