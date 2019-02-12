@@ -23,13 +23,20 @@ class SearchReviews extends React.Component {
 
   render() {
     return (
-      <Col xs sm md lg="3">
+      <Col xs sm md lg="3" className="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fas fa-search" />
+          </span>
+        </div>
+
         <input
           className="form-control"
           type="text"
           placeholder="Search reviews"
           onKeyPress={this.searchAction.bind(this)}
         />
+        {/* <span className="fas fa-search" /> */}
       </Col>
     );
   }
