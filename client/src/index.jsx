@@ -19,7 +19,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recent: [],
+      // recent: [],
       reviews: []
     };
     this.setupReviews = this.setupReviews.bind(this);
@@ -43,18 +43,21 @@ class App extends React.Component {
   }
 
   setupReviews(data) {
-    var recent = data.slice(0, 10);
+    // var recent = data.slice(0, 10);
     this.setState({
-      recent: recent,
+      // recent: recent,
       reviews: data
     });
   }
 
   filterReviews(data) {
-    var recent = data.slice(0, 10);
-    this.setState({
-      recent: recent
-    });
+    // var recent = data.slice(0, 10);
+    // console.log("DATAAAAAA", data);
+    if (data.length !== 0) {
+      this.setState({
+        reviews: data
+      });
+    }
   }
 
   async queryReviewListings(query) {

@@ -81,4 +81,10 @@ body {
   border-left: none;
 }
 
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 /*# sourceMappingURL=style.css.map */

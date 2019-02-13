@@ -1,141 +1,190 @@
 import React from "react";
+import Pagination from "./Pagination.jsx";
 import ReviewEntry from "./ReviewEntry.jsx";
-import Pagination from "react-bootstrap/Pagination";
-import PageItem from "react-bootstrap/PageItem";
 
 class ReviewList extends React.Component {
   constructor(props) {
     super(props);
+
+    // an example array of items to be paged
+    // var exampleItems = [...Array(150).keys()].map(i => ({
+    //   id: i + 1,
+    //   name: "Item " + (i + 1)
+    // }));
+
+    this.state = {
+      // exampleItems: this.props.reviews,
+      pageOfItems: []
+    };
+
+    // bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
+    this.onChangePage = this.onChangePage.bind(this);
+  }
+
+  onChangePage(pageOfItems) {
+    // update state with new page of items
+    this.setState({ pageOfItems: pageOfItems });
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="container">
+          <div className="text-center">
+            {this.state.pageOfItems.map(review => (
+              <ReviewEntry key={review.review_id} review={review} />
+            ))}
+            <Pagination
+              items={this.props.reviews}
+              onChangePage={this.onChangePage}
+            />
+          </div>
+        </div>
+        <hr />
+      </div>
+    );
   }
 }
+
 export default ReviewList;
+// import React from "react";
+// import ReviewEntry from "./ReviewEntry.jsx";
+// import Pagination from "react-bootstrap/Pagination";
+// import PageItem from "react-bootstrap/PageItem";
 
-//     this.state = {
-//       current: this.props.reviews.slice(0, 10),
-//       alllReviews: this.props.reviews,
-//       active: 1,
-//       limit: 10,
-//       offset: 0,
-//       totalPages: 0
-//     };
-
-//     this.handlePaginationSelect = this.handlePaginationSelect.bind(this);
-//   }
-
-//   handlePaginationSelect(selectedPage) {
-//     console.log(selectedPage);
-//     let offset = this.state.limit * selectedPage;
-//     this.setState({
-//       active: this.state.selectedPage
-//     });
-//   }
-
-//   handleLimitChange(event) {
-//     console.log(event.target);
-//     var number = event.target.innerHTML;
-
-//     document.getElementByClassName(number).classList.add("active");
-
-//     this.setState({
-//       active: number
-//     });
-//   }
-
-//   // <ul>
-//   //   {props.recent.map(review => (
-//   //     <ReviewEntry key={review.review_id} review={review} />
-//   //   ))}
-//   // </ul>
-//   render() {
-//     const populatePages = () => {
-//       let active = 1;
-//       let items = [];
-//       for (let number = 1; number <= 10; number++) {
-//         items.push(
-//           <Pagination.Item
-//             className={number}
-//             active={number === this.state.active}
-//             onClick={this.handleLimitChange.bind(this)}
-//           >
-//             {number}
-//           </Pagination.Item>
-//         );
-//       }
-//       return items;
-//     };
-
-//     return (
-//       <Pagination>
-//         <Pagination.Prev />
-//         {populatePages()}
-//         <Pagination.Next />
-//       </Pagination>
-//     );
+// class ReviewList extends React.Component {
+//   constructor(props) {
+//     super(props);
 //   }
 // }
-
 // export default ReviewList;
 
-///////////
+// //     this.state = {
+// //       current: this.props.reviews.slice(0, 10),
+// //       alllReviews: this.props.reviews,
+// //       active: 1,
+// //       limit: 10,
+// //       offset: 0,
+// //       totalPages: 0
+// //     };
 
-{
-  /* <Pagination.Item
-          active={1 === this.state.active}
-          onChange={active => this.setState({ active })}
-        >
-          {1}
-        </Pagination.Item>
-        <Pagination.Item
-          active={2 === this.state.active}
-          onChange={active => this.setState({ active })}
-        >
-          {2}
-        </Pagination.Item>
-        <Pagination.Item
-          active={3 === this.state.active}
-          onChange={active => this.setState({ active })}
-        >
-          {3}
-        </Pagination.Item>
-        <Pagination.Item
-          active={4 === this.state.active}
-          onChange={active => this.setState({ active })}
-        >
-          {4}
-        </Pagination.Item>
-        <Pagination.Ellipsis />
+// //     this.handlePaginationSelect = this.handlePaginationSelect.bind(this);
+// //   }
 
-        <Pagination.Item
-          active={10 === this.state.active}
-          onChange={active => this.setState({ active })}
-        >
-          {10}
-        </Pagination.Item> */
-}
-//////////////
+// //   handlePaginationSelect(selectedPage) {
+// //     console.log(selectedPage);
+// //     let offset = this.state.limit * selectedPage;
+// //     this.setState({
+// //       active: this.state.selectedPage
+// //     });
+// //   }
 
-// let active = 1;
-// let items = [];
-// for (let number = 1; number <= 10; number++) {
-// items.push(
-// <Pagination.Item active={number === active}>{number}</Pagination.Item>
-// );
+// //   handleLimitChange(event) {
+// //     console.log(event.target);
+// //     var number = event.target.innerHTML;
+
+// //     document.getElementByClassName(number).classList.add("active");
+
+// //     this.setState({
+// //       active: number
+// //     });
+// //   }
+
+// //   // <ul>
+// //   //   {props.recent.map(review => (
+// //   //     <ReviewEntry key={review.review_id} review={review} />
+// //   //   ))}
+// //   // </ul>
+// //   render() {
+// //     const populatePages = () => {
+// //       let active = 1;
+// //       let items = [];
+// //       for (let number = 1; number <= 10; number++) {
+// //         items.push(
+// //           <Pagination.Item
+// //             className={number}
+// //             active={number === this.state.active}
+// //             onClick={this.handleLimitChange.bind(this)}
+// //           >
+// //             {number}
+// //           </Pagination.Item>
+// //         );
+// //       }
+// //       return items;
+// //     };
+
+// //     return (
+// //       <Pagination>
+// //         <Pagination.Prev />
+// //         {populatePages()}
+// //         <Pagination.Next />
+// //       </Pagination>
+// //     );
+// //   }
+// // }
+
+// // export default ReviewList;
+
+// ///////////
+
+// {
+//   /* <Pagination.Item
+//           active={1 === this.state.active}
+//           onChange={active => this.setState({ active })}
+//         >
+//           {1}
+//         </Pagination.Item>
+//         <Pagination.Item
+//           active={2 === this.state.active}
+//           onChange={active => this.setState({ active })}
+//         >
+//           {2}
+//         </Pagination.Item>
+//         <Pagination.Item
+//           active={3 === this.state.active}
+//           onChange={active => this.setState({ active })}
+//         >
+//           {3}
+//         </Pagination.Item>
+//         <Pagination.Item
+//           active={4 === this.state.active}
+//           onChange={active => this.setState({ active })}
+//         >
+//           {4}
+//         </Pagination.Item>
+//         <Pagination.Ellipsis />
+
+//         <Pagination.Item
+//           active={10 === this.state.active}
+//           onChange={active => this.setState({ active })}
+//         >
+//           {10}
+//         </Pagination.Item> */
 // }
+// //////////////
 
-// const paginationBasic = (
+// // let active = 1;
+// // let items = [];
+// // for (let number = 1; number <= 10; number++) {
+// // items.push(
+// // <Pagination.Item active={number === active}>{number}</Pagination.Item>
+// // );
+// // }
 
-// {items}
-// ```
-// <Pagination bsSize="medium">{items}</Pagination>
-// <br />
+// // const paginationBasic = (
 
-// <Pagination bsSize="small">{items}</Pagination>
-// ```
-// );
-// render(paginationBasic);
+// // {items}
+// // ```
+// // <Pagination bsSize="medium">{items}</Pagination>
+// // <br />
 
-////// OG
-//   import React from "react";
+// // <Pagination bsSize="small">{items}</Pagination>
+// // ```
+// // );
+// // render(paginationBasic);
+
+// ////// OG
+// import React from "react";
 // import ReviewEntry from "./ReviewEntry.jsx";
 // import Pagination from "react-bootstrap/Pagination";
 // import PageItem from "react-bootstrap/PageItem";
