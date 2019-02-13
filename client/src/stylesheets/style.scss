@@ -6,7 +6,7 @@ $primary-color: rgb(75, 75, 75);
 }
 
 .stars {
-  font: 100% $font-stack;
+  // font: 100% $font-stack;
   color: rgb(15, 114, 118);
   font-size: 20px;
 }
@@ -93,6 +93,11 @@ body {
   text-align: left;
 }
 
+// flag icon
+.fa-flag {
+  text-align: end;
+}
+
 // pagination numbers
 .pagination {
   display: flex;
@@ -105,8 +110,8 @@ body {
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: rgb(15, 114, 118);
+  border-color: rgb(15, 114, 118);
   border-radius: 50%;
 }
 

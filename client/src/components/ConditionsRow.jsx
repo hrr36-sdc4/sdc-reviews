@@ -8,15 +8,19 @@ class CondtionsRow extends React.Component {
 
     const fullStars = data => {
       return [...Array(data)].map((x, i) => (
-        <span className="stars" key={i}>
-          &#9733;
-        </span>
+        // <span className="stars" key={i}>
+        //   &#9733;
+        // </span>
+        <i class="fas fa-star stars" />
       ));
     };
 
     const blankStars = data => {
       if (data !== 0) {
-        return [...Array(data)].map((x, i) => <span key={i}>&#9734;</span>);
+        return [...Array(data)].map((x, i) => (
+          // <span key={i}>&#9734;</span>
+          <i class="far fa-star stars" />
+        ));
       }
     };
 
