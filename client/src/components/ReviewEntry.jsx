@@ -23,7 +23,7 @@ const ReviewEntry = props => (
         </Row>
       </Col>
     </Row>
-    <Row>{props.review.description}</Row>
+    <Row className="desciption-align">{props.review.description}</Row>
   </li>
 );
 

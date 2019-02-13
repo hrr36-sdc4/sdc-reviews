@@ -81,6 +81,10 @@ body {
   border-left: none;
 }
 
+.desciption-align {
+  text-align: left;
+}
+
 .pagination {
   display: flex;
   flex-direction: row;
