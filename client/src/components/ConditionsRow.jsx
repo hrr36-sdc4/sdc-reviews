@@ -11,7 +11,7 @@ class CondtionsRow extends React.Component {
         // <span className="stars" key={i}>
         //   &#9733;
         // </span>
-        <i class="fas fa-star stars" />
+        <i key={i} className="fas fa-star stars" />
       ));
     };
 
@@ -19,7 +19,7 @@ class CondtionsRow extends React.Component {
       if (data !== 0) {
         return [...Array(data)].map((x, i) => (
           // <span key={i}>&#9734;</span>
-          <i class="far fa-star stars" />
+          <i key={i} className="far fa-star stars" />
         ));
       }
     };

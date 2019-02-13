@@ -93,9 +93,14 @@ body {
   text-align: left;
 }
 
-// flag icon
-.fa-flag {
-  text-align: end;
+// design the read More / read Less button
+.read-btn {
+  border: 0;
+  color: rgb(15, 114, 118);
+}
+
+.read-btn:focus {
+  outline: 0;
 }
 
 // pagination numbers

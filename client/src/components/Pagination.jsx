@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Row from "react-bootstrap/Row";
 
 const propTypes = {
   items: PropTypes.array.isRequired,
@@ -116,40 +117,48 @@ class Pagination extends React.Component {
 
     return (
       <ul className="pagination">
-        <li className={pager.currentPage === 1 ? "disabled button" : "button"}>
-          <a onClick={() => this.setPage(1)}>First</a>
-        </li>
-        <li className={pager.currentPage === 1 ? "disabled button" : "button"}>
-          <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
-        </li>
-        {pager.pages.map((page, index) => (
+        <Row>
           <li
-            key={index}
+            className={pager.currentPage === 1 ? "disabled button" : "button"}
+          >
+            <a onClick={() => this.setPage(1)}>First</a>
+          </li>
+          <li
+            className={pager.currentPage === 1 ? "disabled button" : "button"}
+          >
+            <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
+          </li>
+          {pager.pages.map((page, index) => (
+            <li
+              key={index}
+              className={
+                pager.currentPage === page
+                  ? "active highlight button"
+                  : "button"
+              }
+            >
+              <a onClick={() => this.setPage(page)}>{page}</a>
+            </li>
+          ))}
+          <li
             className={
-              pager.currentPage === page ? "active highlight button" : "button"
+              pager.currentPage === pager.totalPages
+                ? "disabled button"
+                : "button"
             }
           >
-            <a onClick={() => this.setPage(page)}>{page}</a>
+            <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
           </li>
-        ))}
-        <li
-          className={
-            pager.currentPage === pager.totalPages
-              ? "disabled button"
-              : "button"
-          }
-        >
-          <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
-        </li>
-        <li
-          className={
-            pager.currentPage === pager.totalPages
-              ? "disabled button"
-              : "button"
-          }
-        >
-          <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
-        </li>
+          <li
+            className={
+              pager.currentPage === pager.totalPages
+                ? "disabled button"
+                : "button"
+            }
+          >
+            <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
+          </li>
+        </Row>
       </ul>
     );
   }

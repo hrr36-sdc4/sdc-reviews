@@ -84,8 +84,13 @@ body {
   text-align: left;
 }
 
-.fa-flag {
-  text-align: end;
+.read-btn {
+  border: 0;
+  color: #0f7276;
+}
+
+.read-btn:focus {
+  outline: 0;
 }
 
 .pagination {

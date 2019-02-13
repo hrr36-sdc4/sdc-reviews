@@ -1,6 +1,7 @@
 import React from "react";
 import Pagination from "./Pagination.jsx";
 import ReviewEntry from "./ReviewEntry.jsx";
+import Row from "react-bootstrap/Row";
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -25,13 +26,17 @@ class ReviewList extends React.Component {
       <div>
         <div className="container">
           <div className="text-center">
-            {this.state.pageOfItems.map(review => (
-              <ReviewEntry key={review.review_id} review={review} />
-            ))}
-            <Pagination
-              items={this.props.reviews}
-              onChangePage={this.onChangePage}
-            />
+            <Row>
+              {this.state.pageOfItems.map(review => (
+                <ReviewEntry key={review.review_id} review={review} />
+              ))}
+            </Row>
+            <Row>
+              <Pagination
+                items={this.props.reviews}
+                onChangePage={this.onChangePage}
+              />
+            </Row>
           </div>
         </div>
         <hr />
