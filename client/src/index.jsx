@@ -127,7 +127,7 @@ class App extends React.Component {
           />
         </Row>
         <Row>
-          <ReviewList recent={this.state.recent} />
+          <ReviewList reviews={this.state.reviews} />
         </Row>
       </Container>
     );
