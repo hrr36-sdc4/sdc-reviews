@@ -1,6 +1,9 @@
 import React from "react";
+import Col from "react-bootstrap/Col";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 
-class DropdownSearch extends React.Component {
+class DropDownSearch extends React.Component {
   constructor(props) {
     super(props);
 
@@ -10,26 +13,27 @@ class DropdownSearch extends React.Component {
   }
 
   change(e) {
-    this.props.handleValueChange(e.target.value);
-    this.setState({
-      value: e.target.value
-    });
+    this.props.handleValueChange(e);
+    e === "recent"
+      ? this.setState({ value: "Most recent" })
+      : this.setState({ value: "Most relevant" });
   }
 
   render() {
     return (
-      <div className="dropdown-menu">
-        <select
-          name="search"
-          onChange={this.change.bind(this)}
-          value={this.state.value}
+      <Col className="dropdown-column" xs sm md lg="3">
+        <DropdownButton
+          variant="light"
+          id="dropdown-basic-button"
+          title={this.state.value}
+          onSelect={this.change.bind(this)}
         >
-          <option value="recent">Most recent</option>
-          <option value="relevant">Most relevant</option>
-        </select>
-      </div>
+          <Dropdown.Item eventKey="recent">Most recent</Dropdown.Item>
+          <Dropdown.Item eventKey="relevant">Most relevant</Dropdown.Item>
+        </DropdownButton>
+      </Col>
     );
   }
 }
 
-export default DropdownSearch;
+export default DropDownSearch;

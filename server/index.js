@@ -4,7 +4,7 @@ const db = require("../database-pg/index.js");
 const bodyParser = require("body-parser");
 const {
   findMostRecent,
-  findMostRelevant10,
+  findMostRelevant,
   findFilteredReviews
 } = require("../database-pg/index.js");
 
@@ -25,7 +25,7 @@ app.get("/rooms/reviews/recent", function(req, res) {
 
 app.get("/rooms/reviews/relevant", function(req, res) {
   console.log("Inside server for relevant get request");
-  findMostRelevant10().then(records => {
+  findMostRelevant().then(records => {
     console.log("retrieved relevant reviews from DB!!!");
     return res.status(200).send(records);
   });
