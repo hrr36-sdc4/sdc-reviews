@@ -7,9 +7,6 @@ class ReviewCount extends React.Component {
 
     const fullStars = (data = 4) => {
       return [...Array(data)].map((x, i) => (
-        // <span className="stars" key={i}>
-        //   &#9733;
-        // </span>
         <i key={i} className="fas fa-star stars">
           {" "}
         </i>
@@ -19,8 +16,7 @@ class ReviewCount extends React.Component {
     const blankStars = data => {
       if (data !== 0) {
         return [...Array(data)].map((x, i) => (
-          // <span key={i}>&#9734;</span>
-          <i key={i} className="far fa-star stars" />
+          <i class="fas fa-star blank-star" />
         ));
       }
     };

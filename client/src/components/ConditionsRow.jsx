@@ -8,9 +8,6 @@ class CondtionsRow extends React.Component {
 
     const fullStars = data => {
       return [...Array(data)].map((x, i) => (
-        // <span className="stars" key={i}>
-        //   &#9733;
-        // </span>
         <i key={i} className="fas fa-star stars" />
       ));
     };
@@ -18,8 +15,7 @@ class CondtionsRow extends React.Component {
     const blankStars = data => {
       if (data !== 0) {
         return [...Array(data)].map((x, i) => (
-          // <span key={i}>&#9734;</span>
-          <i key={i} className="far fa-star stars" />
+          <i key={i} className="fas fa-star blank-star" />
         ));
       }
     };
@@ -41,11 +37,3 @@ class CondtionsRow extends React.Component {
 }
 
 export default CondtionsRow;
-
-{
-  /* <Col className={this.props.title}>
-        <span>{this.props.title}</span>
-        {fullStars(rating)}
-        {blankStars(5 - rating)}
-      </Col> */
-}

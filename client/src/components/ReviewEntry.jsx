@@ -10,50 +10,38 @@ class ReviewEntry extends React.Component {
 
     this.state = {
       expanded: false,
-      read: "Read More"
+      read: "Read More",
+      dots: "..."
     };
 
     this.expandText = this.expandText.bind(this);
   }
 
   expandText() {
-    let read;
+    let dots;
     if (this.state.expanded === false) {
-      read = "Read Less";
+      dots = "";
     } else {
-      read = "Read More";
+      dots = "...";
     }
     this.setState({
       expanded: !this.state.expanded,
-      read: read
+      dots: dots
     });
-    // var dots = document.getElementById("dots");
-    // var moreText = document.getElementById("more");
-    // var btnText = document.getElementById("myBtn");
-
-    // if (dots.style.display === "none") {
-    //   dots.style.display = "inline";
-    //   btnText.innerHTML = "Read more";
-    //   moreText.style.display = "none";
-    // } else {
-    //   dots.style.display = "none";
-    //   btnText.innerHTML = "Read less";
-    //   moreText.style.display = "inline";
-    // }
   }
 
   render() {
     return (
       <li className="review-entry bottom-spacing">
         <Row className="description-spacing">
-          <Col className="images" lg={2} sm={2} xs={2} xl={2}>
+          <Col className="images" lg={3} sm={3} xs={3} xl={3}>
             <Image
               src={this.props.review.image_url}
               className="thumbnail"
               roundedCircle
             />
           </Col>
-          <Col>
+          <Col lg={6} sm={6} xs={6} xl={6}>
             <Row className="username">{this.props.review.username}</Row>
             <Row>
               {moment(this.props.review.created_at)
@@ -63,15 +51,15 @@ class ReviewEntry extends React.Component {
           </Col>
         </Row>
         <Row className="desciption-align">
-          {this.props.review.description.slice(0, 100)}
-          {this.state.expanded && (
-            <div>{this.props.review.description.slice(100)}</div>
-          )}
-          {this.props.review.description.length > 100 && (
-            <button onClick={this.expandText} className="read-btn">
-              {this.state.read}
-            </button>
-          )}
+          <Col lg={12} sm={12} xs={12} xl={12}>
+            {this.props.review.description.slice(0, 111)}
+            {this.state.expanded && this.props.review.description.slice(111)}
+            {this.props.review.description.length > 100 && this.state.dots && (
+              <button onClick={this.expandText} className="read-btn">
+                {this.state.read}
+              </button>
+            )}
+          </Col>
         </Row>
       </li>
     );
@@ -79,31 +67,3 @@ class ReviewEntry extends React.Component {
 }
 
 export default ReviewEntry;
-
-// const ReviewEntry = props => (
-//   <li className="review-entry bottom-spacing">
-//     <Row className="description-spacing">
-//       <Col className="images" lg={2} sm={2} xs={2} xl={2}>
-//         <Image
-//           src={props.review.image_url}
-//           className="thumbnail"
-//           roundedCircle
-//         />
-//       </Col>
-//       <Col>
-//         <Row className="username">{props.review.username}</Row>
-//         <Row>
-//           {moment(props.review.created_at)
-//             .startOf("day")
-//             .fromNow()}
-//         </Row>
-//       </Col>
-//     </Row>
-//     <Row className="desciption-align">{props.review.description}
-//     </Row>
-//   </li>
-// );
-
-// export default ReviewEntry;
-
-// {this.state.show && <div>{ object }</div> }
