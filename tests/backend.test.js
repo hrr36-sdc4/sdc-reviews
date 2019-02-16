@@ -1,4 +1,4 @@
-const { findMostRelevant10 } = require("../database-pg/index.js");
+const { findMostRelevant } = require("../database-pg/index.js");
 const axios = require("axios");
 var request = require("request");
 var config = require("../knexfile.js");
@@ -15,14 +15,16 @@ describe("Testing Postgres database", () => {
   // afterAll(() => setTimeout(() => knex.destroy(), 2000));
 
   test("gets 10 most relevant users from db", async done => {
-    await findMostRelevant10().then(result => {
+    await findMostRelevant().then(result => {
+      result = result.slice(0, 10);
       expect(result).toHaveLength(10);
       done();
     });
   });
 
   test("each users accuracy rating is between 1 - 5", async done => {
-    await findMostRelevant10().then(results => {
+    await findMostRelevant().then(results => {
+      results = results.slice(0, 10);
       var accurate = 0;
       for (let i = 0; i < results.length; i++) {
         if (results[i].accuracy > 0 && results[i].accuracy < 6) {
@@ -35,7 +37,7 @@ describe("Testing Postgres database", () => {
   });
 
   test("each users should have a different review id", async done => {
-    await findMostRelevant10().then(results => {
+    await findMostRelevant().then(results => {
       let accurate = false;
       if (results[0].review_id !== results[1].review_id) {
         accurate = !accurate;
