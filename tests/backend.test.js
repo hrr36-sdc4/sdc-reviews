@@ -1,4 +1,4 @@
-const { findMostRelevant } = require("../database-pg/index.js");
+const { findMostRelevant } = require("../database/index.js");
 const axios = require("axios");
 var request = require("request");
 var config = require("../knexfile.js");

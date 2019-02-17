@@ -1,15 +1,17 @@
 const express = require("express");
 const app = express();
-const db = require("../database-pg/index.js");
+const db = require("../database/index.js");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const {
   findMostRecent,
   findMostRelevant,
   findFilteredReviews
-} = require("../database-pg/index.js");
+} = require("../database/index.js");
 
 const port = 3000;
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
