@@ -141,17 +141,18 @@ class Pagination extends React.Component {
             </a>
           </li>
           {pager.pages.map((page, index) => (
-            <li key={index}>
-              <div
-                className={
-                  pager.currentPage === page
-                    ? "active highlight button hide-page"
-                    : "button hide-page"
-                }
-              >
-                {" "}
-                <a onClick={() => this.setPage(page)}>{page}</a>
-              </div>
+            <li
+              key={index}
+              className={
+                pager.currentPage === page
+                  ? "active highlight button hide-page"
+                  : "button hide-page"
+              }
+            >
+              {" "}
+              <a className="number-center" onClick={() => this.setPage(page)}>
+                {page}
+              </a>
             </li>
           ))}
           <li

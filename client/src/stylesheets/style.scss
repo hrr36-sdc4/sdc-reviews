@@ -122,22 +122,29 @@ body {
   background-color: rgb(15, 114, 118);
   border-color: rgb(15, 114, 118);
   border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.number-center {
+  text-align: center;
 }
 
 .button {
-  padding: 0 15px;
+  // padding: 0 15px;
   border: 10px solid transparent;
-}
-
-.arr-height {
-  line-height: 3em;
 }
 
 .arrow-page {
   border-radius: 50%;
-  margin-left: 20px;
-  margin-right: 1em;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
   border: 1px solid rgb(15, 114, 118);
+}
+
+.arr-height {
+  padding-top: 15px;
 }
 
 ////////////////////
@@ -154,6 +161,6 @@ body {
     display: none;
   }
   .arrow-page {
-    margin-right: 0;
+    margin-right: 20px;
   }
 }
