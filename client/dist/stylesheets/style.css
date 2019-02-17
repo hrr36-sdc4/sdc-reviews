@@ -119,4 +119,10 @@ body {
   border: 10px solid transparent;
 }
 
+@media only screen and (max-width: 1200px) {
+  .move-page {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

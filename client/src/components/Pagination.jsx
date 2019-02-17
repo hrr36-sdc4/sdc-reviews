@@ -119,14 +119,22 @@ class Pagination extends React.Component {
       <ul className="pagination">
         <Row>
           <li
-            className={pager.currentPage === 1 ? "disabled button" : "button"}
+            className={
+              pager.currentPage === 1
+                ? "disabled button move-page"
+                : "button move-page"
+            }
           >
-            <a onClick={() => this.setPage(1)}>First</a>
+            <a onClick={() => this.setPage(1)}>
+              <i className="fas fa-angle-double-left" />
+            </a>
           </li>
           <li
             className={pager.currentPage === 1 ? "disabled button" : "button"}
           >
-            <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
+            <a onClick={() => this.setPage(pager.currentPage - 1)}>
+              <i className="fas fa-angle-left" />
+            </a>
           </li>
           {pager.pages.map((page, index) => (
             <li
@@ -147,16 +155,20 @@ class Pagination extends React.Component {
                 : "button"
             }
           >
-            <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
+            <a onClick={() => this.setPage(pager.currentPage + 1)}>
+              <i className="fas fa-angle-right" />
+            </a>
           </li>
           <li
             className={
               pager.currentPage === pager.totalPages
-                ? "disabled button"
-                : "button"
+                ? "disabled button move-page"
+                : "button move-page"
             }
           >
-            <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
+            <a onClick={() => this.setPage(pager.totalPages)}>
+              <i className="fas fa-angle-double-right" />
+            </a>
           </li>
         </Row>
       </ul>

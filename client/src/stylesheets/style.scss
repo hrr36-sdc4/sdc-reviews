@@ -127,3 +127,12 @@ body {
   padding: 0 15px;
   border: 10px solid transparent;
 }
+
+////////////////////
+// MOBILE SCREEN ///
+////////////////////
+@media only screen and (max-width: 1200px) {
+  .move-page {
+    display: none;
+  }
+}
