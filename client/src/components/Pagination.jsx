@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 const propTypes = {
   items: PropTypes.array.isRequired,
@@ -116,69 +117,71 @@ class Pagination extends React.Component {
     }
 
     return (
-      <ul className="pagination">
-        <Row>
-          <li
-            className={
-              pager.currentPage === 1
-                ? "disabled button hide-first-last arrow-page"
-                : "button hide-first-last arrow-page"
-            }
-          >
-            <a onClick={() => this.setPage(1)}>
-              <i className="fas fa-angle-double-left arr-height" />
-            </a>
-          </li>
-          <li
-            className={
-              pager.currentPage === 1
-                ? "disabled button arrow-page"
-                : "button arrow-page"
-            }
-          >
-            <a onClick={() => this.setPage(pager.currentPage - 1)}>
-              <i className="fas fa-angle-left arr-height" />
-            </a>
-          </li>
-          {pager.pages.map((page, index) => (
+      <Container>
+        <ul className="pagination">
+          <Row>
             <li
-              key={index}
               className={
-                pager.currentPage === page
-                  ? "active highlight button hide-page"
-                  : "button hide-page"
+                pager.currentPage === 1
+                  ? "disabled button hide-first-last arrow-page"
+                  : "button hide-first-last arrow-page"
               }
             >
-              {" "}
-              <a className="number-center" onClick={() => this.setPage(page)}>
-                {page}
+              <a onClick={() => this.setPage(1)}>
+                <i className="fas fa-angle-double-left arr-height" />
               </a>
             </li>
-          ))}
-          <li
-            className={
-              pager.currentPage === pager.totalPages
-                ? "disabled button arrow-page"
-                : "button arrow-page"
-            }
-          >
-            <a onClick={() => this.setPage(pager.currentPage + 1)}>
-              <i className="fas fa-angle-right arr-height" />
-            </a>
-          </li>
-          <li
-            className={
-              pager.currentPage === pager.totalPages
-                ? "disabled button hide-first-last arrow-page"
-                : "button hide-first-last arrow-page"
-            }
-          >
-            <a onClick={() => this.setPage(pager.totalPages)}>
-              <i className="fas fa-angle-double-right arr-height" />
-            </a>
-          </li>
-        </Row>
-      </ul>
+            <li
+              className={
+                pager.currentPage === 1
+                  ? "disabled button arrow-page"
+                  : "button arrow-page"
+              }
+            >
+              <a onClick={() => this.setPage(pager.currentPage - 1)}>
+                <i className="fas fa-angle-left arr-height" />
+              </a>
+            </li>
+            {pager.pages.map((page, index) => (
+              <li
+                key={index}
+                className={
+                  pager.currentPage === page
+                    ? "active highlight button hide-page"
+                    : "button hide-page"
+                }
+              >
+                {" "}
+                <a className="number-center" onClick={() => this.setPage(page)}>
+                  {page}
+                </a>
+              </li>
+            ))}
+            <li
+              className={
+                pager.currentPage === pager.totalPages
+                  ? "disabled button arrow-page"
+                  : "button arrow-page"
+              }
+            >
+              <a onClick={() => this.setPage(pager.currentPage + 1)}>
+                <i className="fas fa-angle-right arr-height" />
+              </a>
+            </li>
+            <li
+              className={
+                pager.currentPage === pager.totalPages
+                  ? "disabled button hide-first-last arrow-page"
+                  : "button hide-first-last arrow-page"
+              }
+            >
+              <a onClick={() => this.setPage(pager.totalPages)}>
+                <i className="fas fa-angle-double-right arr-height" />
+              </a>
+            </li>
+          </Row>
+        </ul>
+      </Container>
     );
   }
 }

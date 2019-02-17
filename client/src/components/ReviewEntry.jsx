@@ -41,7 +41,7 @@ class ReviewEntry extends React.Component {
               roundedCircle
             />
           </Col>
-          <Col lg={6} sm={6} xs={6} xl={6}>
+          <Col lg={6} sm={8} xs={8} xl={6}>
             <Row className="username">{this.props.review.username}</Row>
             <Row>
               {moment(this.props.review.created_at)
