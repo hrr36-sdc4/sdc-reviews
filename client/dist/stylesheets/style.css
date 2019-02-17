@@ -99,6 +99,7 @@ body {
 }
 
 .pagination {
+  color: #0f7276;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -119,9 +120,29 @@ body {
   border: 10px solid transparent;
 }
 
+.arr-height {
+  line-height: 3em;
+}
+
+.arrow-page {
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-right: 1em;
+  border: 1px solid #0f7276;
+}
+
 @media only screen and (max-width: 1200px) {
-  .move-page {
+  .hide-first-last {
     display: none;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .hide-page {
+    display: none;
+  }
+
+  .arrow-page {
+    margin-right: 0;
   }
 }
 

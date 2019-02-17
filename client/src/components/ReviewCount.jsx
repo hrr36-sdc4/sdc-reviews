@@ -16,7 +16,7 @@ class ReviewCount extends React.Component {
     const blankStars = data => {
       if (data !== 0) {
         return [...Array(data)].map((x, i) => (
-          <i class="fas fa-star blank-star" />
+          <i key={i} className="fas fa-star blank-star" />
         ));
       }
     };
