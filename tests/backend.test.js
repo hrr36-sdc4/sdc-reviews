@@ -14,16 +14,16 @@ describe("Testing Postgres database", () => {
   // knex.migrate.latest([config]);
   // afterAll(() => setTimeout(() => knex.destroy(), 2000));
 
-  test("gets 10 most relevant users from db", async done => {
-    await findMostRelevant().then(result => {
+  test("gets 10 most relevant users from db", done => {
+    findMostRelevant().then(result => {
       result = result.slice(0, 10);
       expect(result).toHaveLength(10);
       done();
     });
   });
 
-  test("each users accuracy rating is between 1 - 5", async done => {
-    await findMostRelevant().then(results => {
+  test("each users accuracy rating is between 1 - 5", done => {
+    findMostRelevant().then(results => {
       results = results.slice(0, 10);
       var accurate = 0;
       for (let i = 0; i < results.length; i++) {
@@ -36,8 +36,8 @@ describe("Testing Postgres database", () => {
     });
   });
 
-  test("each users should have a different review id", async done => {
-    await findMostRelevant().then(results => {
+  test("each users should have a different review id", done => {
+    findMostRelevant().then(results => {
       let accurate = false;
       if (results[0].review_id !== results[1].review_id) {
         accurate = !accurate;

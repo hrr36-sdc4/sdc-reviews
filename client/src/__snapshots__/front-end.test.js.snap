@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewCount should render correctly in "debug" mode 1`] = `
+<ForwardRef(Bootstrap(Col))
+  className="bottom-spacing"
+  lg={12}
+  md={12}
+  xs={12}
+>
+  <h3
+    className="ReviewCount"
+  >
+     Reviews 
+    <i
+      className="fas fa-star blank-star"
+      key="0"
+    />
+    <i
+      className="fas fa-star blank-star"
+      key="1"
+    />
+    <i
+      className="fas fa-star blank-star"
+      key="2"
+    />
+    <i
+      className="fas fa-star blank-star"
+      key="3"
+    />
+    <i
+      className="fas fa-star blank-star"
+      key="4"
+    />
+  </h3>
+</ForwardRef(Bootstrap(Col))>
+`;
+
+exports[`should be possible to activate button with enter 1`] = `
+<SearchReviews>
+  <ForwardRef(Bootstrap(Col))
+    className="form-group input-group"
+    lg="3"
+    md={true}
+    sm={true}
+    xs={true}
+  >
+    <Col
+      as="div"
+      bsPrefix="col"
+      className="form-group input-group"
+      lg="3"
+      md={true}
+      sm={true}
+      xs={true}
+    >
+      <div
+        className="form-group input-group col-lg-3 col-md col-sm col"
+      >
+        <div
+          className="input-group-prepend"
+        >
+          <span
+            className="input-group-text"
+          >
+            <i
+              className="fas fa-search"
+            />
+          </span>
+        </div>
+        <input
+          className="form-control"
+          onKeyPress={[Function]}
+          placeholder="Search reviews"
+          type="text"
+        />
+      </div>
+    </Col>
+  </ForwardRef(Bootstrap(Col))>
+</SearchReviews>
+`;
+
+exports[`tests ReviewCount Component should render correctly in "debug" mode 1`] = `
+<ForwardRef(Bootstrap(Col))
+  className="bottom-spacing"
+  lg={12}
+  md={12}
+  xs={12}
+>
+  <h3
+    className="ReviewCount"
+  >
+     Reviews 
+    <i
+      className="fas fa-star blank-star"
+      key="0"
+    />
+    <i
+      className="fas fa-star blank-star"
+      key="1"
+    />
+    <i
+      className="fas fa-star blank-star"
+      key="2"
+    />
+    <i
+      className="fas fa-star blank-star"
+      key="3"
+    />
+    <i
+      className="fas fa-star blank-star"
+      key="4"
+    />
+  </h3>
+</ForwardRef(Bootstrap(Col))>
+`;
+
+exports[`tests SearchReviews Component should be possible to generate search critera with enter 1`] = `
+<SearchReviews>
+  <ForwardRef(Bootstrap(Col))
+    className="form-group input-group"
+    lg="3"
+    md={true}
+    sm={true}
+    xs={true}
+  >
+    <Col
+      as="div"
+      bsPrefix="col"
+      className="form-group input-group"
+      lg="3"
+      md={true}
+      sm={true}
+      xs={true}
+    >
+      <div
+        className="form-group input-group col-lg-3 col-md col-sm col"
+      >
+        <div
+          className="input-group-prepend"
+        >
+          <span
+            className="input-group-text"
+          >
+            <i
+              className="fas fa-search"
+            />
+          </span>
+        </div>
+        <input
+          className="form-control"
+          onKeyPress={[Function]}
+          placeholder="Search reviews"
+          type="text"
+        />
+      </div>
+    </Col>
+  </ForwardRef(Bootstrap(Col))>
+</SearchReviews>
+`;
