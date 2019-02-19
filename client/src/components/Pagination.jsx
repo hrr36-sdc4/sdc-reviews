@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 const propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.any.isRequired, // temp fix
   onChangePage: PropTypes.func.isRequired,
   initialPage: PropTypes.number,
   pageSize: PropTypes.number
