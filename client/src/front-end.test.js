@@ -10,7 +10,7 @@ global.render = render;
 global.mount = mount;
 
 // Components to be tested
-import ReviewCount from "./components/Reviewcount.jsx";
+import ReviewCount from "./components/ReviewCount.jsx";
 import SearchReviews from "./components/SearchReviews.jsx";
 import Pagination from "./components/Pagination.jsx";
 import ReviewEntry from "./components/ReviewEntry.jsx";
@@ -29,10 +29,10 @@ describe("tests ReviewCount Component", () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  // it("should render title prop", () => {
-  //   const wrapper = shallow(<ReviewCount reviewLength={2} average={3} />);
-  //   expect(wrapper.prop("reviewLength")).toEqual(2);
-  // });
+  //   it("should render title prop", () => {
+  //     const wrapper = shallow(<ReviewCount reviewLength={2} average={3} />);
+  //     expect(wrapper.prop("reviewLength")).toEqual(2);
+  //   });
 });
 
 describe("tests SearchReviews Component", () => {
