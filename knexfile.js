@@ -4,9 +4,7 @@ module.exports = {
     connection: {
       // database: "reviews"
       host: "127.0.0.1",
-      user: process.env.PG_USER,
-      password: process.env.PG_PASSWORD,
-      database: process.env.PG_DATABASE,
+      database: "reviews",
       port: parseInt(process.env.PG_PORT) || 5432
     },
     migrations: {
@@ -20,9 +18,9 @@ module.exports = {
   staging: {
     client: "postgresql",
     connection: {
+      host: "127.0.0.1",
       database: "reviews",
-      user: "root",
-      password: ""
+      port: parseInt(process.env.PG_PORT) || 5432
     },
     pool: {
       min: 0,
@@ -36,9 +34,9 @@ module.exports = {
   production: {
     client: "postgresql",
     connection: {
+      host: "127.0.0.1",
       database: "reviews",
-      user: "root",
-      password: ""
+      port: parseInt(process.env.PG_PORT) || 5432
     },
     pool: {
       min: 0,
