@@ -9,7 +9,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:10.8.0
 
-      environment:
+        environment:
           NODE_ENV: development
           # PG_USER: jerrodq2
           PG_DATABASE: reviews
