@@ -35,6 +35,10 @@ exports[`ReviewCount should render correctly in "debug" mode 1`] = `
 </ForwardRef(Bootstrap(Col))>
 `;
 
+exports[`accept custom properties 1`] = `undefined`;
+
+exports[`accepts custom properties 1`] = `undefined`;
+
 exports[`pass a selected value to the onChange handler 1`] = `
 <ForwardRef(Bootstrap(Col))
   className="form-group input-group"
@@ -135,6 +139,56 @@ exports[`should be possible to activate button with enter 1`] = `
 </SearchReviews>
 `;
 
+exports[`tests ConditionsRatings Component accepts custom properties 1`] = `undefined`;
+
+exports[`tests ConditionsRatings Component should render correctly 1`] = `
+<ForwardRef(Bootstrap(Container))
+  className="ConditionsRatings"
+>
+  <ForwardRef(Bootstrap(Row))>
+    <ForwardRef(Bootstrap(Col))
+      lg={6}
+      md={6}
+      sm={12}
+      xs={12}
+    >
+      <CondtionsRow
+        rating={1}
+        title="Accuracy"
+      />
+      <CondtionsRow
+        rating={1}
+        title="Communication"
+      />
+      <CondtionsRow
+        rating={1}
+        title="Cleanliness"
+      />
+    </ForwardRef(Bootstrap(Col))>
+    <ForwardRef(Bootstrap(Col))
+      lg={6}
+      md={6}
+      sm={12}
+      xs={12}
+    >
+       
+      <CondtionsRow
+        rating={1}
+        title="Location"
+      />
+      <CondtionsRow
+        rating={1}
+        title="Check In"
+      />
+      <CondtionsRow
+        rating={1}
+        title="Value"
+      />
+    </ForwardRef(Bootstrap(Col))>
+  </ForwardRef(Bootstrap(Row))>
+</ForwardRef(Bootstrap(Container))>
+`;
+
 exports[`tests ConditionsRatings Component should render correctly with no props 1`] = `
 <ForwardRef(Bootstrap(Container))
   className="ConditionsRatings"
@@ -183,6 +237,34 @@ exports[`tests ConditionsRatings Component should render correctly with no props
 </ForwardRef(Bootstrap(Container))>
 `;
 
+exports[`tests DropdownSearch component should render correctly 1`] = `
+<ForwardRef(Bootstrap(Col))
+  className="dropdown-column"
+  lg="3"
+  md={true}
+  sm={true}
+  xs={true}
+>
+  <DropdownButton
+    id="dropdown-basic-button"
+    onChange={[Function]}
+    title="Most recent"
+    variant="light"
+  >
+    <ForwardRef(ContextTransform)
+      eventKey="recent"
+    >
+      Most recent
+    </ForwardRef(ContextTransform)>
+    <ForwardRef(ContextTransform)
+      eventKey="relevant"
+    >
+      Most relevant
+    </ForwardRef(ContextTransform)>
+  </DropdownButton>
+</ForwardRef(Bootstrap(Col))>
+`;
+
 exports[`tests Pagination Component should render correctly 1`] = `""`;
 
 exports[`tests ReviewCount Component should render correctly in "debug" mode 1`] = `
@@ -221,6 +303,66 @@ exports[`tests ReviewCount Component should render correctly in "debug" mode 1`]
 `;
 
 exports[`tests ReviewEntry Component renders an image 1`] = `undefined`;
+
+exports[`tests ReviewEntry Component should render correctly 1`] = `
+<li
+  className="review-entry bottom-spacing"
+>
+  <ForwardRef(Bootstrap(Row))
+    className="description-spacing"
+  >
+    <ForwardRef(Bootstrap(Col))
+      className="images"
+      lg={3}
+      sm={3}
+      xl={3}
+      xs={3}
+    >
+      <ForwardRef(Bootstrap(Image))
+        className="thumbnail"
+        roundedCircle={true}
+        src="image"
+      />
+    </ForwardRef(Bootstrap(Col))>
+    <ForwardRef(Bootstrap(Col))
+      lg={6}
+      sm={8}
+      xl={6}
+      xs={8}
+    >
+      <ForwardRef(Bootstrap(Row))
+        className="username"
+      >
+        dawn
+      </ForwardRef(Bootstrap(Row))>
+      <ForwardRef(Bootstrap(Row))>
+        19 hours ago
+      </ForwardRef(Bootstrap(Row))>
+    </ForwardRef(Bootstrap(Col))>
+  </ForwardRef(Bootstrap(Row))>
+  <ForwardRef(Bootstrap(Row))
+    className="desciption-align"
+  >
+    <ForwardRef(Bootstrap(Col))
+      lg={12}
+      sm={12}
+      xl={12}
+      xs={12}
+    >
+      Sodales mus cras fermentum hendrerit lorem. Sagittis hendrerit cubilia tincidunt nibh tortor posuere parturient
+      <span>
+        ...
+        <button
+          className="read-btn"
+          onClick={[Function]}
+        >
+          Read More
+        </button>
+      </span>
+    </ForwardRef(Bootstrap(Col))>
+  </ForwardRef(Bootstrap(Row))>
+</li>
+`;
 
 exports[`tests ReviewEntry image renders and image 1`] = `undefined`;
 

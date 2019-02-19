@@ -14,8 +14,9 @@ import ReviewCount from "./components/Reviewcount.jsx";
 import SearchReviews from "./components/SearchReviews.jsx";
 import Pagination from "./components/Pagination.jsx";
 import ReviewEntry from "./components/ReviewEntry.jsx";
-import CondtionsRow from "./components/ConditionsRatings.jsx";
+import ConditionsRatings from "./components/ConditionsRatings.jsx";
 import DropdownSearch from "./components/DropdownSearch.jsx";
+import ConditionsRow from "./components/ConditionsRow.jsx";
 
 //  good for debugging -
 // console.log(component.debug())
@@ -109,6 +110,12 @@ describe("tests ReviewEntry Component", () => {
   };
   const review_id = 1;
 
+  it("should render correctly", () => {
+    const component = shallow(<ReviewEntry key={review_id} review={review} />);
+
+    expect(toJson(component)).toMatchSnapshot();
+  });
+
   it("sets loading state to true when clicking Read More button", () => {
     const component = mount(<ReviewEntry key={review_id} review={review} />);
     component.find("button").simulate("click");
@@ -144,23 +151,30 @@ describe("tests ConditionsRatings Component", () => {
     value: 1
   };
 
-  it("should render correctly with no props", () => {
-    const component = shallow(<CondtionsRow ratings={ratings} />);
+  ///////////// testing jsx
+  test("accepts custom properties", () => {
+    const wrapper = shallow(
+      <ConditionsRatings ratings={ratings} flexBasis={0} flexGrow={1} />
+    );
+    expect(wrapper.prop("style")).toMatchSnapshot();
+  });
+
+  it("should render correctly", () => {
+    const component = shallow(<ConditionsRatings ratings={ratings} />);
 
     expect(component).toMatchSnapshot();
   });
-
-  // it("should render text correctly with given objects", () => {
-  //   const strings = ["one", "two"];
-  //   const component = shallow(<CondtionsRow list={strings} />);
-  //   expect(component).toMatchSnapshot();
-  // });
 });
-
-/////////// check that a function passed as props is successfully called.
 
 describe("tests DropdownSearch component", () => {
   const clickFn = jest.fn();
+
+  it("should render correctly", () => {
+    const component = shallow(<DropdownSearch handleValueChange={clickFn} />);
+
+    expect(toJson(component)).toMatchSnapshot();
+  });
+
   it("selecting a dropdown option should trigger the props function", () => {
     const component = shallow(<DropdownSearch handleValueChange={clickFn} />);
     component.find("#dropdown-basic-button").simulate("change");
@@ -168,33 +182,8 @@ describe("tests DropdownSearch component", () => {
   });
 });
 
-///////////// testing jsx
-// test('accept custom properties', () => {
-//     const wrapper = shallow(
-//         <Layout
-//             flexBasis={0}
-//             flexGrow={1}
-//             flexShrink={1}
-//             flexWrap="wrap"
-//             justifyContent="flex-end"
-//             alignContent="center"
-//             alignItems="center"
-//         />
-//     );
-//     expect(wrapper.prop('style')).toMatchSnapshot();
-// });
-
 /////////// testing props
-// test('render a document title', () => {
-//     const wrapper = shallow(
-//         <DocumentTitle title="Events" />
-//     );
-//     expect(wrapper.prop('title')).toEqual('Events');
-// });
-
-// test('render a document title and a parent title', () => {
-//     const wrapper = shallow(
-//         <DocumentTitle title="Events" parent="Event Radar" />
-//     );
-//     expect(wrapper.prop('title')).toEqual('Events — Event Radar');
+// test("should render title prop", () => {
+//   const wrapper = shallow(<ConditionsRow title={"Title!"} rating={1} />);
+//   expect(wrapper.prop("title")).toEqual("Title!");
 // });
