@@ -2,10 +2,7 @@ module.exports = {
   development: {
     client: "postgresql",
     connection: {
-      host: "127.0.0.1",
-      password: "",
-      database: "reviews",
-      port: parseInt(process.env.PG_PORT) || 5432
+      database: "reviews"
     },
     migrations: {
       directory: __dirname + "/database/migrations"
