@@ -9,6 +9,10 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:10.8.0
 
+      # - environment:
+      #   PG_USER: root
+      #   PG_DATABASE: reviews
+      #   PG_PORT: 5432
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -26,7 +30,15 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
+      - run: npm run install
+
+       - run:
+        name: Wait for Postgres to start
+        command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+        - run:
+          name: Create database
+          command: npm run db:reset:test
 
       - save_cache:
           paths:
