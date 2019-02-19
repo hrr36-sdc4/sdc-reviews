@@ -17,9 +17,11 @@ import ReviewEntry from "./components/ReviewEntry.jsx";
 import ConditionsRatings from "./components/ConditionsRatings.jsx";
 import DropdownSearch from "./components/DropdownSearch.jsx";
 import ConditionsRow from "./components/ConditionsRow.jsx";
+import ReviewList from "./components/ReviewList.jsx";
 
 //  good for debugging -
 // console.log(component.debug())
+
 describe("tests ReviewCount Component", () => {
   it('should render correctly in "debug" mode', () => {
     const component = shallow(<ReviewCount debug />);
@@ -27,14 +29,12 @@ describe("tests ReviewCount Component", () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  // reviewLength={this.state.reviews.length}
-  //           average={ratings["totalAverage"]}
+  // it("should render title prop", () => {
+  //   const wrapper = shallow(<ReviewCount reviewLength={2} average={3} />);
+  //   expect(wrapper.prop("reviewLength")).toEqual(2);
+  // });
 });
 
-/////////  testing with MOUNT //////////////////////
-// always call unmount() after to not affect other tests
-////////////////////////////////////////////////////
-/////////// wanting to test interacting with a child component then the mount method can be used.
 describe("tests SearchReviews Component", () => {
   it("should render correctly", () => {
     const component = shallow(<SearchReviews />);
@@ -106,11 +106,11 @@ describe("tests ReviewEntry Component", () => {
     image_url: "image",
     username: "dawn",
     description:
-      "Sodales mus cras fermentum hendrerit lorem. Sagittis hendrerit cubilia tincidunt nibh tortor posuere parturient quam consequat. Habitasse nec id massa nec tincidunt platea. Felis aliquam sed eget amet tortor quam. Condimentum ad. Ac condimentum, varius torquent posuere placerat faucibus fames etiam massa blandit platea ad eget venenatis nulla curabitur lectus turpis sociosqu imperdiet iaculis porttitor vitae tristique est parturient bibendum molestie non aenean semper montes ridiculus per. Mus. Dui leo ante nascetur aliquam urna quam, dignissim sit torquent ante. Facilisis. Metus. Pellentesque vel maecenas amet donec fringilla mus senectus. Curabitur suspendisse elit consectetuer placerat auctor etiam mattis sociosqu. Ridiculus ullamcorper felis sed hymenaeos Vitae, curabitur nunc metus platea aenean id ut vestibulum senectus. Feugiat hymenaeos nullam hymenaeos netus volutpat class aptent senectus est fusce urna torquent rutrum. Vel suspendisse."
+      "Sodales ms cras fermentum hendrerit lorem. Sagittis hendrerit cubilia tincidunt nibh tortor posuere parturient quam consequat. Habitasse nec id massa nec tincidunt platea. Felis aliquam sed eget amet tortor quam. Condimentum ad. Ac condimentum, varius torquent posuere placerat faucibus fames etiam massa blandit platea ad eget venenatis nulla curabitur lectus turpis sociosqu imperdiet iaculis porttitor vitae tristique est parturient bibendum molestie non aenean semper montes ridiculus per. Mus. Dui leo ante nascetur aliquam urna quam, dignissim sit torquent ante. Facilisis. Metus. Pellentesque vel maecenas amet donec fringilla mus senectus. Curabitur suspendisse elit consectetuer placerat auctor etiam mattis sociosqu. Ridiculus ullamcorper felis sed hymenaeos Vitae, curabitur nunc metus platea aenean id ut vestibulum senectus. Feugiat hymenaeos nullam hymenaeos netus volutpat class aptent senectus est fusce urna torquent rutrum. Vel suspendisse."
   };
   const review_id = 1;
 
-  it("should render correctly", () => {
+  xit("should render correctly", () => {
     const component = shallow(<ReviewEntry key={review_id} review={review} />);
 
     expect(toJson(component)).toMatchSnapshot();
@@ -129,18 +129,7 @@ describe("tests ReviewEntry Component", () => {
     expect(wrapper.prop("image_url")).toMatchSnapshot();
   });
 });
-//////////////////////////////////////////
 
-// testing with RENDER
-// renders to static html
-// less costly than mount but less functionality
-
-///////// testing with SHALLOW  //////////////////////
-// renders only single component (not even its children)
-// This is as with shallow(<MyComponent />), you're testing what MyComponent renders -
-// not the element you passed into shallow
-//////////////////////////////////////////
-/////////// simple, non-interactive components
 describe("tests ConditionsRatings Component", () => {
   const ratings = {
     accuracy: 1,
@@ -151,8 +140,14 @@ describe("tests ConditionsRatings Component", () => {
     value: 1
   };
 
-  ///////////// testing jsx
-  test("accepts custom properties", () => {
+  // it("should render child component correctly", () => {
+  //   const wrapper = shallow(<ConditionsRatings ratings={ratings} />)
+  //     .find(".acc")
+  //     .renderProp("title", "hero");
+  //   expect(wrapper.equals(<h1>1</h1>)).toBe(true);
+  // });
+
+  it("accepts custom properties", () => {
     const wrapper = shallow(
       <ConditionsRatings ratings={ratings} flexBasis={0} flexGrow={1} />
     );
@@ -179,6 +174,26 @@ describe("tests DropdownSearch component", () => {
     const component = shallow(<DropdownSearch handleValueChange={clickFn} />);
     component.find("#dropdown-basic-button").simulate("change");
     expect(clickFn).toHaveBeenCalled();
+  });
+});
+
+describe("tests ConditionsRow component", () => {
+  it("should render correctly", () => {
+    const component = shallow(<ConditionsRow title="title" rating={5} />);
+    expect(toJson(component)).toMatchSnapshot();
+  });
+});
+
+describe("tests ReviewList Component", () => {
+  const review = {
+    image_url: "image",
+    username: "dawn",
+    description:
+      "Sodales mus cras fermentum hendrerit lorem. Sagittis hendrerit cubilia tincidunt nibh tortor posuere parturient quam consequat. Habitasse nec id massa nec tincidunt platea. Felis aliquam sed eget amet tortor quam. Condimentum ad. Ac condimentum, varius torquent posuere placerat faucibus fames etiam massa blandit platea ad eget venenatis nulla curabitur lectus turpis sociosqu imperdiet iaculis porttitor vitae tristique est parturient bibendum molestie non aenean semper montes ridiculus per. Mus. Dui leo ante nascetur aliquam urna quam, dignissim sit torquent ante. Facilisis. Metus. Pellentesque vel maecenas amet donec fringilla mus senectus. Curabitur suspendisse elit consectetuer placerat auctor etiam mattis sociosqu. Ridiculus ullamcorper felis sed hymenaeos Vitae, curabitur nunc metus platea aenean id ut vestibulum senectus. Feugiat hymenaeos nullam hymenaeos netus volutpat class aptent senectus est fusce urna torquent rutrum. Vel suspendisse."
+  };
+  it('should render correctly in "debug" mode', () => {
+    const component = shallow(<ReviewList reviews={review} />);
+    expect(toJson(component)).toMatchSnapshot();
   });
 });
 

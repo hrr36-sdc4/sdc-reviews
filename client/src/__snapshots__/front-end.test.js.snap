@@ -139,6 +139,43 @@ exports[`should be possible to activate button with enter 1`] = `
 </SearchReviews>
 `;
 
+exports[`should render correctly in "debug" mode 1`] = `
+<ForwardRef(Bootstrap(Row))
+  className="top-star-spacing"
+>
+  <ForwardRef(Bootstrap(Col))
+    className="title"
+  >
+    <span>
+      title
+    </span>
+  </ForwardRef(Bootstrap(Col))>
+  <ForwardRef(Bootstrap(Col))>
+     
+    <i
+      className="fas fa-star stars"
+      key="0"
+    />
+    <i
+      className="fas fa-star stars"
+      key="1"
+    />
+    <i
+      className="fas fa-star stars"
+      key="2"
+    />
+    <i
+      className="fas fa-star stars"
+      key="3"
+    />
+    <i
+      className="fas fa-star stars"
+      key="4"
+    />
+  </ForwardRef(Bootstrap(Col))>
+</ForwardRef(Bootstrap(Row))>
+`;
+
 exports[`tests ConditionsRatings Component accepts custom properties 1`] = `undefined`;
 
 exports[`tests ConditionsRatings Component should render correctly 1`] = `
@@ -235,6 +272,43 @@ exports[`tests ConditionsRatings Component should render correctly with no props
     </ForwardRef(Bootstrap(Col))>
   </ForwardRef(Bootstrap(Row))>
 </ForwardRef(Bootstrap(Container))>
+`;
+
+exports[`tests ConditionsRow component should render correctly 1`] = `
+<ForwardRef(Bootstrap(Row))
+  className="top-star-spacing"
+>
+  <ForwardRef(Bootstrap(Col))
+    className="title"
+  >
+    <span>
+      title
+    </span>
+  </ForwardRef(Bootstrap(Col))>
+  <ForwardRef(Bootstrap(Col))>
+     
+    <i
+      className="fas fa-star stars"
+      key="0"
+    />
+    <i
+      className="fas fa-star stars"
+      key="1"
+    />
+    <i
+      className="fas fa-star stars"
+      key="2"
+    />
+    <i
+      className="fas fa-star stars"
+      key="3"
+    />
+    <i
+      className="fas fa-star stars"
+      key="4"
+    />
+  </ForwardRef(Bootstrap(Col))>
+</ForwardRef(Bootstrap(Row))>
 `;
 
 exports[`tests DropdownSearch component should render correctly 1`] = `
@@ -365,6 +439,60 @@ exports[`tests ReviewEntry Component should render correctly 1`] = `
 `;
 
 exports[`tests ReviewEntry image renders and image 1`] = `undefined`;
+
+exports[`tests ReviewList Component should render correctly 1`] = `
+<div>
+  <ForwardRef(Bootstrap(Container))>
+    <ForwardRef(Bootstrap(Col))
+      className="text-center"
+    >
+      <ForwardRef(Bootstrap(Row)) />
+      <ForwardRef(Bootstrap(Row))>
+        <Pagination
+          initialPage={1}
+          items={
+            Object {
+              "description": "Sodales mus cras fermentum hendrerit lorem. Sagittis hendrerit cubilia tincidunt nibh tortor posuere parturient quam consequat. Habitasse nec id massa nec tincidunt platea. Felis aliquam sed eget amet tortor quam. Condimentum ad. Ac condimentum, varius torquent posuere placerat faucibus fames etiam massa blandit platea ad eget venenatis nulla curabitur lectus turpis sociosqu imperdiet iaculis porttitor vitae tristique est parturient bibendum molestie non aenean semper montes ridiculus per. Mus. Dui leo ante nascetur aliquam urna quam, dignissim sit torquent ante. Facilisis. Metus. Pellentesque vel maecenas amet donec fringilla mus senectus. Curabitur suspendisse elit consectetuer placerat auctor etiam mattis sociosqu. Ridiculus ullamcorper felis sed hymenaeos Vitae, curabitur nunc metus platea aenean id ut vestibulum senectus. Feugiat hymenaeos nullam hymenaeos netus volutpat class aptent senectus est fusce urna torquent rutrum. Vel suspendisse.",
+              "image_url": "image",
+              "username": "dawn",
+            }
+          }
+          onChangePage={[Function]}
+          pageSize={10}
+        />
+      </ForwardRef(Bootstrap(Row))>
+    </ForwardRef(Bootstrap(Col))>
+  </ForwardRef(Bootstrap(Container))>
+  <hr />
+</div>
+`;
+
+exports[`tests ReviewList Component should render correctly in "debug" mode 1`] = `
+<div>
+  <ForwardRef(Bootstrap(Container))>
+    <ForwardRef(Bootstrap(Col))
+      className="text-center"
+    >
+      <ForwardRef(Bootstrap(Row)) />
+      <ForwardRef(Bootstrap(Row))>
+        <Pagination
+          initialPage={1}
+          items={
+            Object {
+              "description": "Sodales mus cras fermentum hendrerit lorem. Sagittis hendrerit cubilia tincidunt nibh tortor posuere parturient quam consequat. Habitasse nec id massa nec tincidunt platea. Felis aliquam sed eget amet tortor quam. Condimentum ad. Ac condimentum, varius torquent posuere placerat faucibus fames etiam massa blandit platea ad eget venenatis nulla curabitur lectus turpis sociosqu imperdiet iaculis porttitor vitae tristique est parturient bibendum molestie non aenean semper montes ridiculus per. Mus. Dui leo ante nascetur aliquam urna quam, dignissim sit torquent ante. Facilisis. Metus. Pellentesque vel maecenas amet donec fringilla mus senectus. Curabitur suspendisse elit consectetuer placerat auctor etiam mattis sociosqu. Ridiculus ullamcorper felis sed hymenaeos Vitae, curabitur nunc metus platea aenean id ut vestibulum senectus. Feugiat hymenaeos nullam hymenaeos netus volutpat class aptent senectus est fusce urna torquent rutrum. Vel suspendisse.",
+              "image_url": "image",
+              "username": "dawn",
+            }
+          }
+          onChangePage={[Function]}
+          pageSize={10}
+        />
+      </ForwardRef(Bootstrap(Row))>
+    </ForwardRef(Bootstrap(Col))>
+  </ForwardRef(Bootstrap(Container))>
+  <hr />
+</div>
+`;
 
 exports[`tests SearchReviews Component should be possible to generate search critera with enter 1`] = `
 <SearchReviews>
