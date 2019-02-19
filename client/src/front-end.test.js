@@ -3,6 +3,7 @@ import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 import toJson from "enzyme-to-json";
+import renderer from "react-test-renderer";
 
 global.shallow = shallow;
 global.render = render;
@@ -13,11 +14,11 @@ import ReviewCount from "./components/Reviewcount.jsx";
 import SearchReviews from "./components/SearchReviews.jsx";
 import Pagination from "./components/Pagination.jsx";
 import ReviewEntry from "./components/ReviewEntry.jsx";
-import App from "./index.jsx";
+import CondtionsRow from "./components/ConditionsRatings.jsx";
+import DropdownSearch from "./components/DropdownSearch.jsx";
 
 //  good for debugging -
 // console.log(component.debug())
-// import App from "./index.jsx";
 describe("tests ReviewCount Component", () => {
   it('should render correctly in "debug" mode', () => {
     const component = shallow(<ReviewCount debug />);
@@ -34,6 +35,12 @@ describe("tests ReviewCount Component", () => {
 ////////////////////////////////////////////////////
 /////////// wanting to test interacting with a child component then the mount method can be used.
 describe("tests SearchReviews Component", () => {
+  it("should render correctly", () => {
+    const component = shallow(<SearchReviews />);
+
+    expect(toJson(component)).toMatchSnapshot();
+  });
+
   it("should be possible to generate search critera with enter", () => {
     const component = mount(<SearchReviews />);
     component.find(".form-control").simulate("keydown", { keyCode: 13 });
@@ -41,16 +48,47 @@ describe("tests SearchReviews Component", () => {
     expect(component).toMatchSnapshot();
     component.unmount();
   });
+
+  it("should preventDefault when user presses enter on searching for reviews", () => {
+    const value = "2";
+    const onChange = jest.fn();
+    const wrapper = shallow(<SearchReviews handleSearchInput={onChange} />);
+
+    expect(wrapper).toMatchSnapshot();
+
+    wrapper.find(".form-control").simulate("keydown", {
+      keyCode: 13,
+      preventDefault: () => {}
+    });
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
 /////////// test fn calls
 describe("tests Pagination Component", () => {
+  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   const mockFunction = jest.fn();
+
+  // it("should render correctly", () => {
+  //   // const component = renderer.create(
+  //   //   <Pagination items={array} onChangePage={mockFunction} />
+  //   // );
+  //   // const component = mount(
+  //   //   <Pagination items={array} onChangePage={mockFunction} />
+  //   // );
+
+  //   // expect(toJson(component)).toMatchSnapshot();
+  //   // component.unmount();
+  //   const tree = renderer
+  //     .create(<Pagination items={array} onChangePage={mockFunction} />)
+  //     .toJSON();
+  //   expect(tree).toMatchSnapshot();
+  // });
 
   it("should call mockFunction on button click", () => {
     // const component = mount(<Pagination />);
     // expect(component.contains(<Pagination />)).toBe(true);
 
-    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
     const component = mount(
       <Pagination items={array} onChangePage={mockFunction} />
     );
@@ -60,7 +98,7 @@ describe("tests Pagination Component", () => {
     component.unmount();
   });
 });
-// [className="save-button"]
+
 /////////// test state updates
 describe("tests ReviewEntry Component", () => {
   const review = {
@@ -77,6 +115,12 @@ describe("tests ReviewEntry Component", () => {
     expect(component.state("expanded")).toEqual(true);
     component.unmount();
   });
+
+  it("renders an image", () => {
+    const wrapper = shallow(<ReviewEntry review={review} />);
+    // const wrapper = component.find("img");
+    expect(wrapper.prop("image_url")).toMatchSnapshot();
+  });
 });
 //////////////////////////////////////////
 
@@ -90,54 +134,39 @@ describe("tests ReviewEntry Component", () => {
 // not the element you passed into shallow
 //////////////////////////////////////////
 /////////// simple, non-interactive components
-// it('should render correctly with no props', () => {
-//     const component = shallow(<MyComponent/>);
+describe("tests ConditionsRatings Component", () => {
+  const ratings = {
+    accuracy: 1,
+    communication: 1,
+    cleanliness: 1,
+    location: 1,
+    check_in: 1,
+    value: 1
+  };
 
-//     expect(component).toMatchSnapshot();
-//   });
-//   it('should render banner text correctly with given strings', () => {
-//     const strings = ['one', 'two'];
-//     const component = shallow(<MyComponent list={strings} />);
-//     expect(component).toMatchSnapshot();
-//   });
+  it("should render correctly with no props", () => {
+    const component = shallow(<CondtionsRow ratings={ratings} />);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  // it("should render text correctly with given objects", () => {
+  //   const strings = ["one", "two"];
+  //   const component = shallow(<CondtionsRow list={strings} />);
+  //   expect(component).toMatchSnapshot();
+  // });
+});
 
 /////////// check that a function passed as props is successfully called.
 
-// const clickFn = jest.fn();
-// describe('MyComponent', () => {
-//   it('button click should hide component', () => {
-//     const component = shallow(<MyComponent onClick={clickFn} />);
-//     component
-//       .find('button#my-button-two')
-//       .simulate('click');
-//     expect(clickFn).toHaveBeenCalled();
-//   });
-// });
-
-/////////// basic test
-// test('render a label', () => {
-//     const wrapper = shallow(
-//         <Label>Hello Jest!</Label>
-//     );
-//     expect(wrapper).toMatchSnapshot();
-// });
-
-/////////// testing event handlers
-// test('pass a selected value to the onChange handler', () => {
-//     const value = '2';
-//     const onChange = jest.fn();
-//     const wrapper = shallow(
-//         <Select items={ITEMS} onChange={onChange} />
-//     );
-
-//     expect(wrapper).toMatchSnapshot();
-
-//         wrapper.find('select').simulate('change', {
-//         target: { value },
-//     });
-
-//     expect(onChange).toBeCalledWith(value);
-// });
+describe("tests DropdownSearch component", () => {
+  const clickFn = jest.fn();
+  it("selecting a dropdown option should trigger the props function", () => {
+    const component = shallow(<DropdownSearch handleValueChange={clickFn} />);
+    component.find("#dropdown-basic-button").simulate("change");
+    expect(clickFn).toHaveBeenCalled();
+  });
+});
 
 ///////////// testing jsx
 // test('accept custom properties', () => {

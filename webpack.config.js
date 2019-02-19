@@ -1,10 +1,10 @@
-require("babel-polyfill");
+// require("@babel-polyfill");
 var path = require("path");
 var SRC_DIR = path.join(__dirname, "/client/src");
 var DIST_DIR = path.join(__dirname, "/client/dist");
 
 module.exports = {
-  entry: ["babel-polyfill", `${SRC_DIR}/index.jsx`],
+  entry: `${SRC_DIR}/index.jsx`,
   output: {
     filename: "bundle.js",
     path: DIST_DIR
@@ -14,10 +14,7 @@ module.exports = {
       {
         test: /\.jsx?/,
         include: SRC_DIR,
-        loader: "babel-loader",
-        query: {
-          presets: ["react", "es2015"]
-        }
+        loader: "babel-loader"
       }
     ]
   }

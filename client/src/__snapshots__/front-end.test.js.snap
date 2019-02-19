@@ -35,6 +35,62 @@ exports[`ReviewCount should render correctly in "debug" mode 1`] = `
 </ForwardRef(Bootstrap(Col))>
 `;
 
+exports[`pass a selected value to the onChange handler 1`] = `
+<ForwardRef(Bootstrap(Col))
+  className="form-group input-group"
+  lg="3"
+  md={true}
+  sm={true}
+  xs={true}
+>
+  <div
+    className="input-group-prepend"
+  >
+    <span
+      className="input-group-text"
+    >
+      <i
+        className="fas fa-search"
+      />
+    </span>
+  </div>
+  <input
+    className="form-control"
+    onKeyPress={[Function]}
+    placeholder="Search reviews"
+    type="text"
+  />
+</ForwardRef(Bootstrap(Col))>
+`;
+
+exports[`pass a selected value to the onChange handler 2`] = `
+<ForwardRef(Bootstrap(Col))
+  className="form-group input-group"
+  lg="3"
+  md={true}
+  sm={true}
+  xs={true}
+>
+  <div
+    className="input-group-prepend"
+  >
+    <span
+      className="input-group-text"
+    >
+      <i
+        className="fas fa-search"
+      />
+    </span>
+  </div>
+  <input
+    className="form-control"
+    onKeyPress={[Function]}
+    placeholder="Search reviews"
+    type="text"
+  />
+</ForwardRef(Bootstrap(Col))>
+`;
+
 exports[`should be possible to activate button with enter 1`] = `
 <SearchReviews>
   <ForwardRef(Bootstrap(Col))
@@ -79,6 +135,56 @@ exports[`should be possible to activate button with enter 1`] = `
 </SearchReviews>
 `;
 
+exports[`tests ConditionsRatings Component should render correctly with no props 1`] = `
+<ForwardRef(Bootstrap(Container))
+  className="ConditionsRatings"
+>
+  <ForwardRef(Bootstrap(Row))>
+    <ForwardRef(Bootstrap(Col))
+      lg={6}
+      md={6}
+      sm={12}
+      xs={12}
+    >
+      <CondtionsRow
+        rating={1}
+        title="Accuracy"
+      />
+      <CondtionsRow
+        rating={1}
+        title="Communication"
+      />
+      <CondtionsRow
+        rating={1}
+        title="Cleanliness"
+      />
+    </ForwardRef(Bootstrap(Col))>
+    <ForwardRef(Bootstrap(Col))
+      lg={6}
+      md={6}
+      sm={12}
+      xs={12}
+    >
+       
+      <CondtionsRow
+        rating={1}
+        title="Location"
+      />
+      <CondtionsRow
+        rating={1}
+        title="Check In"
+      />
+      <CondtionsRow
+        rating={1}
+        title="Value"
+      />
+    </ForwardRef(Bootstrap(Col))>
+  </ForwardRef(Bootstrap(Row))>
+</ForwardRef(Bootstrap(Container))>
+`;
+
+exports[`tests Pagination Component should render correctly 1`] = `""`;
+
 exports[`tests ReviewCount Component should render correctly in "debug" mode 1`] = `
 <ForwardRef(Bootstrap(Col))
   className="bottom-spacing"
@@ -113,6 +219,10 @@ exports[`tests ReviewCount Component should render correctly in "debug" mode 1`]
   </h3>
 </ForwardRef(Bootstrap(Col))>
 `;
+
+exports[`tests ReviewEntry Component renders an image 1`] = `undefined`;
+
+exports[`tests ReviewEntry image renders and image 1`] = `undefined`;
 
 exports[`tests SearchReviews Component should be possible to generate search critera with enter 1`] = `
 <SearchReviews>
@@ -156,4 +266,88 @@ exports[`tests SearchReviews Component should be possible to generate search cri
     </Col>
   </ForwardRef(Bootstrap(Col))>
 </SearchReviews>
+`;
+
+exports[`tests SearchReviews Component should preventDefault when user presses enter on searching for reviews 1`] = `
+<ForwardRef(Bootstrap(Col))
+  className="form-group input-group"
+  lg="3"
+  md={true}
+  sm={true}
+  xs={true}
+>
+  <div
+    className="input-group-prepend"
+  >
+    <span
+      className="input-group-text"
+    >
+      <i
+        className="fas fa-search"
+      />
+    </span>
+  </div>
+  <input
+    className="form-control"
+    onKeyPress={[Function]}
+    placeholder="Search reviews"
+    type="text"
+  />
+</ForwardRef(Bootstrap(Col))>
+`;
+
+exports[`tests SearchReviews Component should preventDefault when user presses enter on searching for reviews 2`] = `
+<ForwardRef(Bootstrap(Col))
+  className="form-group input-group"
+  lg="3"
+  md={true}
+  sm={true}
+  xs={true}
+>
+  <div
+    className="input-group-prepend"
+  >
+    <span
+      className="input-group-text"
+    >
+      <i
+        className="fas fa-search"
+      />
+    </span>
+  </div>
+  <input
+    className="form-control"
+    onKeyPress={[Function]}
+    placeholder="Search reviews"
+    type="text"
+  />
+</ForwardRef(Bootstrap(Col))>
+`;
+
+exports[`tests SearchReviews Component should render correctly 1`] = `
+<ForwardRef(Bootstrap(Col))
+  className="form-group input-group"
+  lg="3"
+  md={true}
+  sm={true}
+  xs={true}
+>
+  <div
+    className="input-group-prepend"
+  >
+    <span
+      className="input-group-text"
+    >
+      <i
+        className="fas fa-search"
+      />
+    </span>
+  </div>
+  <input
+    className="form-control"
+    onKeyPress={[Function]}
+    placeholder="Search reviews"
+    type="text"
+  />
+</ForwardRef(Bootstrap(Col))>
 `;

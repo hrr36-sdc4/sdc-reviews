@@ -119,6 +119,7 @@ body {
 
 .number-center {
   text-align: center;
+  line-height: 2em;
 }
 
 .button {

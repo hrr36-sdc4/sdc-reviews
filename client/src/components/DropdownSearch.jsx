@@ -26,7 +26,7 @@ class DropDownSearch extends React.Component {
           variant="light"
           id="dropdown-basic-button"
           title={this.state.value}
-          onSelect={this.change.bind(this)}
+          onChange={this.change.bind(this)}
         >
           <Dropdown.Item eventKey="recent">Most recent</Dropdown.Item>
           <Dropdown.Item eventKey="relevant">Most relevant</Dropdown.Item>
