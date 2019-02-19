@@ -12,7 +12,6 @@ describe("Testing Postgres database", () => {
 
   afterAll(() => knex.destroy()); // knex.migrate.lates
   // knex.migrate.latest([config]);
-  // afterAll(() => setTimeout(() => knex.destroy(), 2000));
 
   it("gets 10 most relevant users from db", done => {
     findMostRelevant().then(result => {
