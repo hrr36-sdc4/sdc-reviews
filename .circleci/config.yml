@@ -32,11 +32,11 @@ jobs:
 
       - run: npm run install
 
-       - run:
+      - run:
         name: Wait for Postgres to start
         command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
-        - run:
+      - run:
           name: Create database
           command: npm run db:reset:test
 
