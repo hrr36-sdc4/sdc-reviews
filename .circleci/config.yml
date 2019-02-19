@@ -30,7 +30,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm run install
+      - run: npm install
 
       - run:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
