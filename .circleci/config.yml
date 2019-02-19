@@ -2,19 +2,25 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
+
 version: 2
 jobs:
   build:
+    working_directory: ~/project
     docker:
-      # specify the version you desire here
-      - image: circleci/node:10.8.0
+      - image: circleci/node:8.9.4
+        # The below environemnt is where you set the .env variables used throughout node
+        environment:
+          NODE_ENV: test
+          PG_USER: jerrodq2
+          PG_DATABASE: freelancing_project
+          PG_TEST_DATABASE: freelancing_project_test
+          PG_PORT: 5432
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
-    working_directory: ~/repo
+      - image: postgres:10.3
+        environment:
+          POSTGRES_USER: jerrodq2
+          POSTGRES_DB: freelancing_project
 
     steps:
       - checkout
@@ -26,7 +32,24 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
+      - run:
+          name: Install local dependencies
+          command: npm install
+      - run:
+          name: Install local dependencies
+          command: npm install
+
+      - run:
+          name: Wait for Postgres to start
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Create database
+          command: npm run seedDB
+
+      - run:
+          name: Create database
+          command: npm run db:reset:test
 
       - save_cache:
           paths:
@@ -34,13 +57,48 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm run test
-      # - run:
-      #     name: Deploy Master to Heroku
-      #     command: |
-      #       git push https://heroku:$HEROKU_API_KEY@git.heroku.com/cc-demo-test.git master
-      # ////////
-      # Javascript Node CircleCI 2.0 configuration file
+      - run:
+          name: Running Tests
+          command: npm run test
+# jobs:
+#   build:
+#     docker:
+#       # specify the version you desire here
+#       - image: circleci/node:10.8.0
+
+#       # Specify service dependencies here if necessary
+#       # CircleCI maintains a library of pre-built images
+#       # documented at https://circleci.com/docs/2.0/circleci-images/
+#       # - image: circleci/mongo:3.4.4
+#       - image: circleci/postgres:9.4
+
+#     working_directory: ~/repo
+
+#     steps:
+#       - checkout
+
+#       # Download and cache dependencies
+#       - restore_cache:
+#           keys:
+#             - v1-dependencies-{{ checksum "package.json" }}
+#             # fallback to using the latest cache if no exact match is found
+#             - v1-dependencies-
+
+#       - run: npm install
+
+#       - save_cache:
+#           paths:
+#             - node_modules
+#           key: v1-dependencies-{{ checksum "package.json" }}
+
+#       # run tests!
+#       - run: npm run test
+#       # - run:
+#       #     name: Deploy Master to Heroku
+#       #     command: |
+#       #       git push https://heroku:$HEROKU_API_KEY@git.heroku.com/cc-demo-test.git master
+#       # ////////
+# Javascript Node CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 # #

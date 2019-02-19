@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seedDb": "node database/seed.js",
+    "seedDb": " knex seed:run",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "start": "nodemon server/index.js",
