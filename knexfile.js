@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    client: "postgresql",
+    client: "pg",
     connection: {
       // database: "reviews"
       host: "127.0.0.1",
