@@ -3,11 +3,12 @@ import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 import toJson from "enzyme-to-json";
-import renderer from "react-test-renderer";
 
-global.shallow = shallow;
-global.render = render;
-global.mount = mount;
+// import renderer from "react-test-renderer";
+
+// global.shallow = shallow;
+// global.render = render;
+// global.mount = mount;
 
 // Components to be tested
 import ReviewCount from "./components/ReviewCount.jsx";
@@ -23,9 +24,12 @@ import ReviewList from "./components/ReviewList.jsx";
 // console.log(component.debug())
 
 describe("tests ReviewCount Component", () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<ReviewCount debug />);
+  let component;
+  beforeEach(() => {
+    component = shallow(<ReviewCount debug />);
+  });
 
+  it('should render correctly in "debug" mode', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
