@@ -10,8 +10,8 @@
   "scripts": {
     "db:reset": "knex migrate:latest",
     "seedDb": " knex seed:run",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "jest client/src/ __test__",
+    "test:coverage": "jest client/src/ __test__ --coverage",
     "start": "nodemon server/index.js",
     "dev:react": "webpack -d --watch",
     "build:webpack": "webpack-dev-server --config ./webpack.config.js --mode development",
