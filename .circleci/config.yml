@@ -11,14 +11,15 @@ jobs:
 
         environment:
           NODE_ENV: development
-          # PG_USER: jerrodq2
+          PG_USER: root
           PG_DATABASE: reviews
           # PG_TEST_DATABASE: freelancing_project_test
           PG_PORT: 5432
 
       - image: postgres:10.3
         environment:
-          # POSTGRES_USER: jerrodq2
+          POSTGRES_USER: root
+          # POSTGRES_PASSWORD:
           POSTGRES_DB: reviews
 
       # Specify service dependencies here if necessary
@@ -43,7 +44,7 @@ jobs:
 
       - run:
           name: Wait for Postgres to start
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          command: dockerize -wait tcp://localhost:5432 -timeout 20s
 
       - run:
           name: Create database
