@@ -2,6 +2,21 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 
 class ReviewCount extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+
+  componentDidUpdate() {
+    if (this.props.handleScroll === "true") {
+      window.scrollTo({
+        top: 0,
+        left: this.myRef.current.offsetTop,
+        behavior: "smooth"
+      });
+    }
+  }
+
   render() {
     const average = this.props.average || 0;
 
@@ -23,7 +38,7 @@ class ReviewCount extends React.Component {
 
     return (
       <Col xs={12} md={12} lg={12} className="bottom-spacing">
-        <h3 className="ReviewCount">
+        <h3 className="ReviewCount" ref={this.myRef}>
           {this.props.reviewLength} Reviews {fullStars(average)}
           {blankStars(5 - average)}
         </h3>
