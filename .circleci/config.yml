@@ -12,6 +12,7 @@ jobs:
         environment:
           NODE_ENV: development
           PG_USER: root
+          POSTGRES_PASSWORD:
           PG_DATABASE: reviews
           # PG_TEST_DATABASE: freelancing_project_test
           PG_PORT: 5432
@@ -19,7 +20,7 @@ jobs:
       - image: postgres:10.3
         environment:
           POSTGRES_USER: root
-          # POSTGRES_PASSWORD:
+          POSTGRES_PASSWORD:
           POSTGRES_DB: reviews
 
       # Specify service dependencies here if necessary
