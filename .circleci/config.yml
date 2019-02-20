@@ -10,7 +10,7 @@ jobs:
       - image: circleci/node:10.8.0
 
         environment:
-          NODE_ENV: development
+          NODE_ENV: test
           PG_USER: root
           POSTGRES_PASSWORD:
           PG_DATABASE: reviews
