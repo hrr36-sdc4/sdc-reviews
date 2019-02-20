@@ -9,25 +9,10 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:10.8.0
 
-        environment:
-          NODE_ENV: development
-          PG_USER: root
-          POSTGRES_PASSWORD:
-          PG_DATABASE: reviews
-          # PG_TEST_DATABASE: freelancing_project_test
-          PG_PORT: 5432
-
-      - image: postgres:10.3
-        environment:
-          POSTGRES_USER: root
-          POSTGRES_PASSWORD:
-          POSTGRES_DB: reviews
-
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
-      # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
 
@@ -43,14 +28,6 @@ jobs:
 
       - run: npm install
 
-      - run:
-          name: Wait for Postgres to start
-          command: dockerize -wait tcp://localhost:5432 -timeout 20s
-
-      - run:
-          name: Create database
-          command: npm run db:reset
-
       - save_cache:
           paths:
             - node_modules
@@ -62,89 +39,3 @@ jobs:
       #     name: Deploy Master to Heroku
       #     command: |
       #       git push https://heroku:$HEROKU_API_KEY@git.heroku.com/cc-demo-test.git master
-      # ////////
-      # Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-# #
-# version: 2
-# jobs:
-#   build:
-#     # Primary container image where all commands run
-
-#     docker:
-#       - image: circleci/python:3.6.2-stretch-browsers
-#         environment:
-#           TEST_DATABASE_URL: postgresql://root@localhost/circle_test
-
-#       # Service container image
-
-#       - image: circleci/postgres:9.6.5-alpine-ram
-
-#     # docker:
-#     #   # specify the version you desire here
-#     #   - image: circleci/node:10.8.0
-
-#     #   - environment:
-#     #       TEST_DATABASE_URL: postgresql://root@localhost/circle_test
-#     #   PG_USER: root
-#     # PG_DATABASE: reviews
-#     #   PG_PORT: 5432
-#     # Specify service dependencies here if necessary
-#     # CircleCI maintains a library of pre-built images
-#     # documented at https://circleci.com/docs/2.0/circleci-images/
-#     # - image: circleci/mongo:3.4.4
-
-#     working_directory: ~/repo
-
-#     steps:
-#       - checkout
-
-#       - run:
-#           name: install dockerize
-#           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-#           environment:
-#             DOCKERIZE_VERSION: v0.3.0
-#       - run:
-#           name: Wait for db
-#           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
-#       - run: sudo apt-get update
-#       - run: sudo apt-get install postgresql-client-9.6
-#       - run: whoami
-#       - run: |
-#           psql \
-#           -d $TEST_DATABASE_URL \
-#           -c "CREATE TABLE test (name char(25));"
-#       - run: |
-#           psql \
-#           -d $TEST_DATABASE_URL \
-#           -c "INSERT INTO test VALUES ('John'), ('Joanna'), ('Jennifer');"
-#       - run: |
-#           psql \
-#           -d $TEST_DATABASE_URL \
-#           -c "SELECT * from test"
-
-#       # Download and cache dependencies
-#       - restore_cache:
-#           keys:
-#             - v1-dependencies-{{ checksum "package.json" }}
-#             # fallback to using the latest cache if no exact match is found
-#             - v1-dependencies-
-
-#       - run: npm install
-
-#       - run:
-#           command: npm run db:reset:test
-
-#       - save_cache:
-#           paths:
-#             - node_modules
-#           key: v1-dependencies-{{ checksum "package.json" }}
-
-#       # run tests!
-#       - run: npm run test
-#       # - run:
-#       #     name: Deploy Master to Heroku
-#       #     command: |
-#       #       git push https://heroku:$HEROKU_API_KEY@git.heroku.com/cc-demo-test.git master
