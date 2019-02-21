@@ -6,10 +6,6 @@ import toJson from "enzyme-to-json";
 
 // import renderer from "react-test-renderer";
 
-// global.shallow = shallow;
-// global.render = render;
-// global.mount = mount;
-
 // Components to be tested
 import ReviewCount from "./components/ReviewCount.jsx";
 import SearchReviews from "./components/SearchReviews.jsx";
