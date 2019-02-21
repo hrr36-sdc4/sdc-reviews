@@ -9,7 +9,7 @@ const {
   findFilteredReviews
 } = require("../database/index.js");
 
-const port = 3000;
+const port = process.env.PORT || 8081;
 
 app.use(cors());
 app.use(bodyParser.json());
