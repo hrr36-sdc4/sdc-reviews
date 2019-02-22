@@ -9,12 +9,22 @@ const {
   findFilteredReviews
 } = require("../database/index.js");
 
+// for migrating and seeding db
+var config = require("../knexfile.js");
+var env = "development";
+var knex = require("knex")(config[env]);
+
 const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
+
+// seed db
+knex.migrate.latest([config]).then(function() {
+  return knex.seed.run();
+});
 
 app.get("/rooms/reviews/recent", function(req, res) {
   console.log("Inside server for get request");
