@@ -2,7 +2,11 @@ module.exports = {
   development: {
     client: "postgresql",
     connection: {
-      database: "reviews"
+      host: process.env.RDS_HOSTNAME,
+      user: process.env.RDS_USERNAME,
+      password: process.env.RDS_PASSWORD,
+      port: process.env.RDS_PORT,
+      database: process.env.RDS_DB_NAME
     },
     migrations: {
       directory: __dirname + "/database/migrations"
@@ -15,9 +19,11 @@ module.exports = {
   staging: {
     client: "postgresql",
     connection: {
-      database: "reviews",
-      user: "root",
-      password: ""
+      host: process.env.RDS_HOSTNAME,
+      user: process.env.RDS_USERNAME,
+      password: process.env.RDS_PASSWORD,
+      port: process.env.RDS_PORT,
+      database: process.env.RDS_DB_NAME
     },
     pool: {
       min: 0,
@@ -31,9 +37,11 @@ module.exports = {
   production: {
     client: "postgresql",
     connection: {
-      database: "reviews",
-      user: "root",
-      password: ""
+      host: process.env.RDS_HOSTNAME,
+      user: process.env.RDS_USERNAME,
+      password: process.env.RDS_PASSWORD,
+      port: process.env.RDS_PORT,
+      database: process.env.RDS_DB_NAME
     },
     pool: {
       min: 0,
