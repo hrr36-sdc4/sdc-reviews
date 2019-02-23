@@ -3,7 +3,7 @@ const faker = require("faker");
 const createFakeUser = () => ({
   username: faker.name.findName(),
   created_at: faker.date.past(),
-  description: faker.lorem.paragraph(),
+  description: faker.lorem.words(),
   image_url: faker.image.avatar(),
   user_rating: faker.random.number({
     min: 0,
