@@ -23,7 +23,7 @@ class SearchReviews extends React.Component {
 
   render() {
     return (
-      <Col xs sm md lg="3" className="form-group input-group">
+      <Col xs sm md lg="4" className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
             <i className="fas fa-search" />
@@ -32,7 +32,6 @@ class SearchReviews extends React.Component {
 
         <input
           className="form-control"
-          id="search-bar"
           type="text"
           placeholder="Search reviews"
           onKeyPress={this.searchAction.bind(this)}
