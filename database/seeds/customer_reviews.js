@@ -39,14 +39,31 @@ const createFakeUser = () => ({
   })
 });
 
-exports.seed = async function(knex, Promise) {
-  // each customer review
+// exports.seed = async function(knex, Promise) {
+//   // each customer review
+//   const fakeUsers = [];
+//   const desiredFakeUsers = 100;
+//   for (let i = 0; i < desiredFakeUsers; i++) {
+//     fakeUsers.push(createFakeUser());
+//   }
+//   await knex("reviews").insert(fakeUsers);
+// };
+
+function makeFakeUsers() {
   const fakeUsers = [];
   const desiredFakeUsers = 100;
   for (let i = 0; i < desiredFakeUsers; i++) {
     fakeUsers.push(createFakeUser());
   }
-  await knex("reviews").insert(fakeUsers);
+  return fakeUsers;
+}
+
+exports.seed = function(knex) {
+  return knex("reviews")
+    .del()
+    .then(function() {
+      return knex("reviews").insert(makeFakeUsers());
+    });
 };
 
 // exports.seed = function(knex, Promise) {
