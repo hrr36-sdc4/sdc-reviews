@@ -173,7 +173,6 @@ describe("tests DropdownSearch component", () => {
   xit("selecting a dropdown option should trigger the props function", () => {
     const component = shallow(<DropdownSearch handleValueChange={clickFn} />);
     component.find("#dropdown-basic-button").simulate("click");
-    // component.find("#dropdown-basic-button").simulate("change");
     expect(clickFn).toHaveBeenCalled();
   });
 
