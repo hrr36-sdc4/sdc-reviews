@@ -77,6 +77,14 @@ $primary-color: rgb(75, 75, 75);
   justify-content: space-between;
 }
 
+.btn-toolbar {
+  .col-sm-4,
+  .col-xs-4,
+  .col-md-4 {
+    padding-right: 0px;
+  }
+}
+
 .input-group-text {
   background-color: #e9ecef00;
 }
