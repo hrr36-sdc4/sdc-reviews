@@ -1,4 +1,4 @@
-var config = require("../knexfile.js");
+var config = require("../knexfile");
 var env = "development";
 var knex = require("knex")(config[env]);
 
@@ -29,6 +29,14 @@ const findFilteredReviews = function(query) {
     .then(records => {
       return records;
     });
+};
+
+module.exports = knex;
+
+module.exports.initialize = function() {
+  knex.migrate.latest([knexConfig]).then(function() {
+    return knex.seed.run();
+  });
 };
 
 // knex.migrate.latest([config]);
