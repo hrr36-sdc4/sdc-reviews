@@ -33,11 +33,11 @@ const findFilteredReviews = function(query) {
 
 module.exports = knex;
 
-module.exports.initialize = function() {
-  knex.migrate.latest([knexConfig]).then(function() {
-    return knex.seed.run();
-  });
-};
+// module.exports.initialize = function() {
+//   knex.migrate.latest([knexConfig]).then(function() {
+//     return knex.seed.run();
+//   });
+// };
 
 // knex.migrate.latest([config]);
 
