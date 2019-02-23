@@ -13,7 +13,6 @@ class ReviewList extends React.Component {
       pageOfItems: []
     };
 
-    // bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
     this.onChangePage = this.onChangePage.bind(this);
   }
 

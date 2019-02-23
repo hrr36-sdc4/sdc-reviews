@@ -1,19 +1,16 @@
-// main js file where the rendering will happen and all the components are imported here
 import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
+
 import "./stylesheets/style.scss";
 
 import ReviewCount from "./components/ReviewCount.jsx";
 import ConditionsRatings from "./components/ConditionsRatings.jsx";
 import SearchReviews from "./components/SearchReviews.jsx";
 import DropDownSearch from "./components/DropDownSearch.jsx";
-
 import ReviewList from "./components/ReviewList.jsx";
 
 class App extends React.Component {
@@ -34,8 +31,6 @@ class App extends React.Component {
   async grabReviews() {
     try {
       const response = await axios.get("/rooms/reviews/recent");
-      // console.log("REVIEWS RECEIVED FROM DB!");
-      // console.log(response.data);
       this.setupReviews(response.data);
     } catch (error) {
       console.error(error);
@@ -43,15 +38,12 @@ class App extends React.Component {
   }
 
   setupReviews(data) {
-    // var recent = data.slice(0, 10);
     this.setState({
       reviews: data
     });
   }
 
   filterReviews(data) {
-    // var recent = data.slice(0, 10);
-    // console.log("DATAAAAAA", data);
     if (data.length !== 0) {
       this.setState({
         reviews: data

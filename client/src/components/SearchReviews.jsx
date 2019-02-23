@@ -36,7 +36,6 @@ class SearchReviews extends React.Component {
           placeholder="Search reviews"
           onKeyPress={this.searchAction.bind(this)}
         />
-        {/* <span className="fas fa-search" /> */}
       </Col>
     );
   }

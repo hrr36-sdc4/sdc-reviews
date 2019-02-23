@@ -1,9 +1,38 @@
 $primary-color: rgb(75, 75, 75);
 
-@function black($opacity) {
-  @return rgba(black, $opacity);
+////////////////////
+//// HTML FILE /////
+////////////////////
+
+.review-body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: $primary-color;
 }
 
+////////////////////
+// INDEX.JSX FILE //
+////////////////////
+.top-spacing {
+  margin-top: 25px;
+}
+
+.btn-toolbar {
+  justify-content: space-between;
+}
+
+////////////////////////////////////////
+///////// MULTIPLE COMPONENTS //////////
+////////////////////////////////////////
+.bottom-spacing {
+  margin: 5px 0 24px 0;
+  border-bottom: 1px solid rgba(24, 22, 22, 0.11);
+  padding-bottom: 24px;
+}
+
+////////////////////////////////////////
+//////////// STAR ICONS ////////////////
+////////////////////////////////////////
 .stars {
   color: rgb(15, 114, 118);
   font-size: 20px;
@@ -14,75 +43,37 @@ $primary-color: rgb(75, 75, 75);
   font-size: 20px;
 }
 
-.review-body {
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
-  color: $primary-color;
-}
-
-.ReviewCount {
-  font-weight: 700;
-}
-
-.form-control {
-  font-weight: 500;
-  color: grey;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  border-left: #e9ecef00;
-}
-
-.review-entry {
-  list-style-type: none;
-  color: black;
-}
-
-.username {
-  font-weight: 600;
-}
-
-.bottom-spacing {
-  margin: 5px 0 24px 0;
-  border-bottom: 1px solid rgba(24, 22, 22, 0.11);
-  padding-bottom: 24px;
-}
-
-.top-spacing {
-  margin-top: 25px;
-}
-
+////////////////////////////////////////
+////// CONDITIONSROW COMPONENT /////////
+////////////////////////////////////////
 .top-star-spacing {
   margin-top: 10px;
 }
 
-.rounded-circle {
-  max-width: 60px;
+////////////////////////////////////////
+//////// REVIEWCOUNT COMPONENT /////////
+////////////////////////////////////////
+.ReviewCount {
+  font-weight: 700;
 }
 
-.images {
-  max-width: 100px;
-}
-
-.description-spacing {
-  margin-bottom: 15px;
-}
-
-.dropdown .btn-light {
-  border-color: #2f2c2c33;
-  color: #212529;
-  background-color: #f8f9fa00;
-}
-
-.btn-toolbar {
-  justify-content: space-between;
+////////////////////////////////////////
+////// SEARCHREVIEWS COMPONENT /////////
+////////////////////////////////////////
+.input-group-prepend {
+  margin-right: -13px;
 }
 
 .input-group-text {
   background-color: #e9ecef00;
 }
 
-.input-group-prepend {
-  margin-right: -13px;
+.form-group .form-control {
+  font-weight: 500;
+  color: grey;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border-left: #e9ecef00;
 }
 
 .form-group .form-control:focus {
@@ -91,7 +82,30 @@ $primary-color: rgb(75, 75, 75);
   border-left: none;
 }
 
-// description alignment
+////////////////////////////////////////
+/////// REVIEWENTRY COMPONENT //////////
+////////////////////////////////////////
+.review-entry {
+  list-style-type: none;
+  color: black;
+}
+
+.description-spacing {
+  margin-bottom: 15px;
+}
+
+.images {
+  max-width: 100px;
+}
+
+.rounded-circle {
+  max-width: 60px;
+}
+
+.username {
+  font-weight: 600;
+}
+
 .desciption-align {
   text-align: left;
 }
@@ -107,7 +121,18 @@ $primary-color: rgb(75, 75, 75);
   outline: 0;
 }
 
-// pagination numbers
+////////////////////////////////////////
+//////// DROPDOWN COMPONENT ////////////
+////////////////////////////////////////
+.dropdown .btn-light {
+  border-color: #2f2c2c33;
+  color: #212529;
+  background-color: #f8f9fa00;
+}
+
+////////////////////////////////////////
+/////// PAGINATION COMPONENT ///////////
+////////////////////////////////////////
 .pagination {
   color: rgb(15, 114, 118);
   display: flex;
@@ -151,9 +176,9 @@ $primary-color: rgb(75, 75, 75);
   max-height: 100%;
 }
 
-////////////////////
-// MOBILE SCREEN ///
-////////////////////
+////////////////////////////////////////
+/////////// MOBILE SCREEN //////////////
+////////////////////////////////////////
 
 @media only screen and (max-width: 1200px) {
   .hide-first-last {

@@ -1,3 +1,27 @@
+/* HTML FILE */
+.review-body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #4b4b4b;
+}
+
+/* INDEX.JSX FILE */
+.top-spacing {
+  margin-top: 25px;
+}
+
+.btn-toolbar {
+  justify-content: space-between;
+}
+
+/* MULTIPLE COMPONENTS */
+.bottom-spacing {
+  margin: 5px 0 24px 0;
+  border-bottom: 1px solid rgba(24, 22, 22, 0.11);
+  padding-bottom: 24px;
+}
+
+/* STAR ICONS */
 .stars {
   color: #0f7276;
   font-size: 20px;
@@ -8,17 +32,26 @@
   font-size: 20px;
 }
 
-.review-body {
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
-  color: #4b4b4b;
+/* CONDITIONSROW COMPONENT */
+.top-star-spacing {
+  margin-top: 10px;
 }
 
+/* REVIEWCOUNT COMPONENT */
 .ReviewCount {
   font-weight: 700;
 }
 
-.form-control {
+/* SEARCHREVIEWS COMPONENT */
+.input-group-prepend {
+  margin-right: -13px;
+}
+
+.input-group-text {
+  background-color: #e9ecef00;
+}
+
+.form-group .form-control {
   font-weight: 500;
   color: grey;
   font-size: 14px;
@@ -26,63 +59,32 @@
   border-left: #e9ecef00;
 }
 
+.form-group .form-control:focus {
+  box-shadow: none;
+  border: 1px solid #ced4da;
+  border-left: none;
+}
+
+/* REVIEWENTRY COMPONENT */
 .review-entry {
   list-style-type: none;
   color: black;
-}
-
-.username {
-  font-weight: 600;
-}
-
-.bottom-spacing {
-  margin: 5px 0 24px 0;
-  border-bottom: 1px solid rgba(24, 22, 22, 0.11);
-  padding-bottom: 24px;
-}
-
-.top-spacing {
-  margin-top: 25px;
-}
-
-.top-star-spacing {
-  margin-top: 10px;
-}
-
-.rounded-circle {
-  max-width: 60px;
-}
-
-.images {
-  max-width: 100px;
 }
 
 .description-spacing {
   margin-bottom: 15px;
 }
 
-.dropdown .btn-light {
-  border-color: #2f2c2c33;
-  color: #212529;
-  background-color: #f8f9fa00;
+.images {
+  max-width: 100px;
 }
 
-.btn-toolbar {
-  justify-content: space-between;
+.rounded-circle {
+  max-width: 60px;
 }
 
-.input-group-text {
-  background-color: #e9ecef00;
-}
-
-.input-group-prepend {
-  margin-right: -13px;
-}
-
-.form-group .form-control:focus {
-  box-shadow: none;
-  border: 1px solid #ced4da;
-  border-left: none;
+.username {
+  font-weight: 600;
 }
 
 .desciption-align {
@@ -98,6 +100,14 @@
   outline: 0;
 }
 
+/* DROPDOWNSEACH COMPONENT */
+.dropdown .btn-light {
+  border-color: #2f2c2c33;
+  color: #212529;
+  background-color: #f8f9fa00;
+}
+
+/* PAGINATION COMPONENT */
 .pagination {
   color: #0f7276;
   display: flex;
@@ -140,6 +150,8 @@
   max-height: 100%;
 }
 
+/* MOBILE SCREEN */
+
 @media only screen and (max-width: 1200px) {
   .hide-first-last {
     display: none;
@@ -155,5 +167,3 @@
     margin-left: 10px;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
