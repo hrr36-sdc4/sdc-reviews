@@ -76,6 +76,8 @@ exports.seed = function(knex, Promise) {
         {
           username: "Missy Elliot",
           created_at: "2017-04-20 12:29:45.964056",
+          description:
+            "$argon2d$m=4096,t=3,p=1$JGFyZ29uMmQkb$argon2d$m=4096,t=3,p=1$JGFyZ29uMmQkb$argon2d$m=4096,t=3,p=1$JGFyZ29uMmQkb$argon2d$m=4096,t=3,p=1$JGFyZ29uMmQkb",
           image_url: "$argon2d$m=4096,t=3,p=1$JGFyZ29uMmQkb[...]",
           user_rating: 6,
           accuracy: 5,
@@ -89,3 +91,5 @@ exports.seed = function(knex, Promise) {
       ]);
     });
 };
+
+// faker.lorem.paragraph(nb_sentences=faker.random.number({'min': 1, 'max': 4})),
