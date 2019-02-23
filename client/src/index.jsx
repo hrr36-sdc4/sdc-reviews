@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import "./stylesheets/style.scss";
 
 import ReviewCount from "./components/ReviewCount.jsx";
 import ConditionsRatings from "./components/ConditionsRatings.jsx";
