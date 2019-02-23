@@ -20,7 +20,6 @@ class ReviewList extends React.Component {
   onChangePage(pageOfItems) {
     // update state with new page of items
     this.setState({ pageOfItems: pageOfItems });
-    this.props.handlePageClick();
   }
 
   render() {

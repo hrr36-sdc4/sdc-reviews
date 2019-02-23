@@ -7,16 +7,6 @@ class ReviewCount extends React.Component {
     this.myRef = React.createRef();
   }
 
-  componentDidUpdate() {
-    if (this.props.handleScroll === "true") {
-      window.scrollTo({
-        top: 0,
-        left: this.myRef.current.offsetTop,
-        behavior: "smooth"
-      });
-    }
-  }
-
   render() {
     const average = this.props.average || 0;
 

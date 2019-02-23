@@ -19,13 +19,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: [],
-      scroll: ""
+      reviews: []
     };
     this.setupReviews = this.setupReviews.bind(this);
     this.queryReviewListings = this.queryReviewListings.bind(this);
     this.customReviewListings = this.customReviewListings.bind(this);
-    this.scrollToView = this.scrollToView.bind(this);
   }
 
   componentDidMount() {
@@ -107,12 +105,6 @@ class App extends React.Component {
     return ratings;
   }
 
-  scrollToView() {
-    this.setState({
-      scroll: "true"
-    });
-  }
-
   render() {
     var ratings = this.calculateUserRatings(this.state.reviews);
 
@@ -120,7 +112,6 @@ class App extends React.Component {
       <Container className="ReviewsContainer">
         <Row>
           <ReviewCount
-            handleScroll={this.state.scroll}
             reviewLength={this.state.reviews.length}
             average={ratings["totalAverage"]}
           />
@@ -133,10 +124,7 @@ class App extends React.Component {
           <DropDownSearch handleValueChange={this.customReviewListings} />
         </Row>
         <Row>
-          <ReviewList
-            handlePageClick={this.scrollToView}
-            reviews={this.state.reviews}
-          />
+          <ReviewList reviews={this.state.reviews} />
         </Row>
       </Container>
     );
