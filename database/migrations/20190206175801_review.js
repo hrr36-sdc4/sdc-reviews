@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
       table.increments("review_id").primary();
       table.string("username");
       table.timestamp("created_at");
-      table.string("description");
+      table.text("description");
       table.string("image_url");
       table.integer("user_rating");
       table.integer("accuracy");
