@@ -1,4 +1,4 @@
-const faker = require("faker");
+var faker = require("faker");
 
 const createFakeUser = () => ({
   username: faker.name.findName(),
