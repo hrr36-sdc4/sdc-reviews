@@ -77,14 +77,6 @@ $primary-color: rgb(75, 75, 75);
   justify-content: space-between;
 }
 
-.btn-toolbar {
-  .col-sm-4,
-  .col-xs-4,
-  .col-md-4 {
-    padding-right: 0px;
-  }
-}
-
 .input-group-text {
   background-color: #e9ecef00;
 }
@@ -175,5 +167,11 @@ $primary-color: rgb(75, 75, 75);
   .arrow-page {
     margin-right: 20px;
     margin-left: 10px;
+  }
+
+  .ReviewsConstainer {
+    .form-group {
+      margin-right: -25px;
+    }
   }
 }
