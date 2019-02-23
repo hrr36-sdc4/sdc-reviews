@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/../client/dist"));
+app.use("/rooms/:listingId", express.static(__dirname + "/../client/dist"));
 
 // // seed db
 knex.migrate.latest([config]).then(function() {
