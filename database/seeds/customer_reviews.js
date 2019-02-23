@@ -3,8 +3,9 @@ const faker = require("faker");
 const createFakeUser = () => ({
   username: faker.name.findName(),
   created_at: faker.date.past(),
-  description:
-    "here is a review, here is a review, here is a review, here is a review, here is a review, here is a review",
+  description: faker.lorem.paragraph(
+    (nb_sentences = faker.random.number({ min: 1, max: 4 }))
+  ),
   image_url: faker.image.avatar(),
   user_rating: faker.random.number({
     min: 0,
