@@ -1,8 +1,6 @@
 var config = require("../knexfile.js");
-var env = process.env.NODE_ENV || "development";
+var env = "development";
 var knex = require("knex")(config[env]);
-
-module.exports = knex;
 
 const findMostRecent = function() {
   console.log("accessing postgres db.....");
@@ -33,6 +31,6 @@ const findFilteredReviews = function(query) {
     });
 };
 
-knex.migrate.latest([config]);
+// knex.migrate.latest([config]);
 
 module.exports = { findMostRecent, findMostRelevant, findFilteredReviews };
