@@ -32,6 +32,7 @@ class SearchReviews extends React.Component {
 
         <input
           className="form-control"
+          id="search-bar"
           type="text"
           placeholder="Search reviews"
           onKeyPress={this.searchAction.bind(this)}

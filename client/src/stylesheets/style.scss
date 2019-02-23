@@ -85,6 +85,10 @@ $primary-color: rgb(75, 75, 75);
   margin-right: -13px;
 }
 
+#search-bar {
+  width: 800px;
+}
+
 .form-group .form-control:focus {
   box-shadow: none;
   border: 1px solid #ced4da;
@@ -167,5 +171,9 @@ $primary-color: rgb(75, 75, 75);
   .arrow-page {
     margin-right: 20px;
     margin-left: 10px;
+  }
+
+  #search-bar {
+    width: 400px;
   }
 }
