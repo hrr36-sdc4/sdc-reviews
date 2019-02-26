@@ -1,16 +1,16 @@
-import React from "react";
-import Pagination from "./Pagination.jsx";
-import ReviewEntry from "./ReviewEntry.jsx";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
+import React from 'react';
+import Pagination from './Pagination.jsx';
+import ReviewEntry from './ReviewEntry.jsx';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 
 class ReviewList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      pageOfItems: []
+      pageOfItems: [],
     };
 
     this.onChangePage = this.onChangePage.bind(this);
@@ -25,7 +25,7 @@ class ReviewList extends React.Component {
     return (
       <div>
         <Container>
-          <Col className="text-center">
+          <Col className='text-center'>
             <Row>
               {this.state.pageOfItems.map(review => (
                 <ReviewEntry key={review.review_id} review={review} />

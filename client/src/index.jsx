@@ -7,11 +7,11 @@ import Row from 'react-bootstrap/Row';
 
 import './stylesheets/style.scss';
 
-import ReviewCount from './components/ReviewCount';
-import ConditionsRatings from './components/ConditionsRatings';
-import SearchReviews from './components/SearchReviews';
-import DropDownSearch from './components/DropdownSearch';
-import ReviewList from './components/ReviewList';
+import ReviewCount from './components/ReviewCount.jsx';
+import ConditionsRatings from './components/ConditionsRatings.jsx';
+import SearchReviews from './components/SearchReviews.jsx';
+import DropDownSearch from './components/DropdownSearch.jsx';
+import ReviewList from './components/ReviewList.jsx';
 
 class App extends React.Component {
   constructor(props) {
