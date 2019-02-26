@@ -1,13 +1,10 @@
 # Project Name
 
-> Project description
+> Recreation of Airbnb's Customer Reviews Module
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+- https://github.com/airbnbers/Reviews-Module
 
 ## Table of Contents
 
@@ -36,4 +33,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
