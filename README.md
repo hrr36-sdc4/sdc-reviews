@@ -11,7 +11,7 @@
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
-1. [Development](#development)
+1. [Tech Stack](#techstack)
 
 ## Usage
 
@@ -25,7 +25,12 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
 
-## Development
+## Tech Stack
+
+- React 
+- React-Bootstrap
+- Node.js, Express
+- Postgres, Knex
 
 ### Installing Dependencies
 
