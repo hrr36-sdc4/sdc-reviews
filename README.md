@@ -9,7 +9,7 @@
 
 ## Table of Contents
 
-1. [Tech Stack](#techstack)
+1. [Tech Stack](#tech-stack)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 
