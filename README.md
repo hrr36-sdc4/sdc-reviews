@@ -9,9 +9,16 @@
 
 ## Table of Contents
 
+1. [Tech Stack](#techstack)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
-1. [Tech Stack](#techstack)
+
+## Tech Stack
+
+- Javascript, React 
+- React-Bootstrap
+- Node.js, Express
+- Postgres, Knex
 
 ## Usage
 
@@ -25,12 +32,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
 
-## Tech Stack
 
-- React 
-- React-Bootstrap
-- Node.js, Express
-- Postgres, Knex
 
 ### Installing Dependencies
 
