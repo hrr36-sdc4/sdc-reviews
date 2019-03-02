@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    client: "postgresql",
+    client: "mysql",
     connection: {
       host: process.env.RDS_HOSTNAME,
       user: process.env.RDS_USERNAME,
@@ -9,15 +9,15 @@ module.exports = {
       database: process.env.RDS_DB_NAME
     },
     migrations: {
-      directory: __dirname + "/database/migrations"
+      directory: __dirname + "/database/mysql/migrations"
     },
     seeds: {
-      directory: __dirname + "/database/seeds"
+      directory: __dirname + "/database/mysql/seeds"
     }
   },
 
   staging: {
-    client: "postgresql",
+    client: "mysql",
     connection: {
       host: process.env.RDS_HOSTNAME,
       user: process.env.RDS_USERNAME,
@@ -35,7 +35,7 @@ module.exports = {
   },
 
   production: {
-    client: "postgresql",
+    client: "mysql",
     connection: {
       host: process.env.RDS_HOSTNAME,
       user: process.env.RDS_USERNAME,
