@@ -17,15 +17,17 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static(__dirname + "/../client/dist"));
 
 // // seed db
-knex.migrate.latest([config]).then(function() {
+knex.migrate.latest([config]).then(function () {
   return knex.seed.run();
 });
 
-app.get("/rooms/reviews/recent", function(req, res) {
+app.get("/rooms/reviews/recent", function (req, res) {
   console.log("Inside server for get request");
 
   findMostRecent().then(records => {
@@ -34,7 +36,7 @@ app.get("/rooms/reviews/recent", function(req, res) {
   });
 });
 
-app.get("/rooms/reviews/relevant", function(req, res) {
+app.get("/rooms/reviews/relevant", function (req, res) {
   console.log("Inside server for relevant get request");
   findMostRelevant().then(records => {
     console.log("retrieved relevant reviews from DB!!!");
@@ -42,7 +44,7 @@ app.get("/rooms/reviews/relevant", function(req, res) {
   });
 });
 
-app.get("/rooms/reviews/filter", function(req, res) {
+app.get("/rooms/reviews/filter", function (req, res) {
   console.log("on server side!!!");
   findFilteredReviews(req.query.data).then(records => {
     return res.status(200).send(records);

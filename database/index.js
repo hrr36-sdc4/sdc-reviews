@@ -2,8 +2,8 @@ var config = require("../knexfile");
 var env = "development";
 var knex = require("knex")(config[env]);
 
-const findMostRecent = function() {
-  console.log("accessing postgres db.....");
+const findMostRecent = function () {
+  console.log("accessing mysql db.....");
   return knex
     .from("reviews")
     .orderBy("created_at", "desc")
@@ -12,8 +12,8 @@ const findMostRecent = function() {
     });
 };
 
-const findMostRelevant = function() {
-  console.log("accessing postgres db.....");
+const findMostRelevant = function () {
+  console.log("accessing mysql db.....");
   return knex
     .from("reviews")
     .orderBy("user_rating", "desc")
@@ -22,7 +22,7 @@ const findMostRelevant = function() {
     });
 };
 
-const findFilteredReviews = function(query) {
+const findFilteredReviews = function (query) {
   return knex
     .from("reviews")
     .where("description", "like", `%${query}%`)
@@ -33,4 +33,8 @@ const findFilteredReviews = function(query) {
 
 module.exports = knex;
 
-module.exports = { findMostRecent, findMostRelevant, findFilteredReviews };
+module.exports = {
+  findMostRecent,
+  findMostRelevant,
+  findFilteredReviews
+};
