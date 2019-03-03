@@ -1,4 +1,4 @@
-const faker = require("faker");
+const faker = require('faker');
 
 const createFakeUser = () => ({
   username: faker.name.findName(),
@@ -48,10 +48,10 @@ function makeFakeUsers() {
   return fakeUsers;
 }
 
-exports.seed = function(knex) {
-  return knex("reviews")
+exports.seed = function (knex) {
+  return knex('customer_reviews')
     .del()
-    .then(function() {
-      return knex("reviews").insert(makeFakeUsers());
+    .then(function () {
+      return knex('customer_reviews').insert(makeFakeUsers());
     });
 };
