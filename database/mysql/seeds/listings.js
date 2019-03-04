@@ -2,7 +2,7 @@ const createFakeListing = () => ({
   description: 'asdf',
 });
 
-const amount = 1000000;
+const amount = 10000000;
 
 function makeFakeListings() {
   const fakeListings = [];
@@ -12,10 +12,14 @@ function makeFakeListings() {
   return fakeListings;
 }
 
-exports.seed = function (knex) {
-  return knex('listings')
-    .del()
-    .then(function () {
-      return knex('listings').insert(makeFakeListings());
+exports.seed = async function (knex) {
+  var rows = makeFakeListings();
+  var chunkSize = 100000;
+  await knex.batchInsert('listings', rows, chunkSize)
+    .then(async function () {
+      return Promise.resolve(true);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
 };
