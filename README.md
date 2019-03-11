@@ -21,9 +21,9 @@ Create
 Read
 `GET` /rooms/:id/reviews
 Update
-`PUT` /rooms/:id/reviews
+`PUT` /reviews/:review_id
 Destroy
-`DELETE` /rooms/:id/reviews
+`DELETE` /reviews/:review_id
 
 #### Parameters
 

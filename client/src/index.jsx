@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
+import React from "react";
+import ReactDOM from "react-dom";
+import axios from "axios";
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
-import './stylesheets/style.scss';
+import "./stylesheets/style.scss";
 
-import ReviewCount from './components/ReviewCount.jsx';
-import ConditionsRatings from './components/ConditionsRatings.jsx';
-import SearchReviews from './components/SearchReviews.jsx';
-import DropDownSearch from './components/DropdownSearch.jsx';
-import ReviewList from './components/ReviewList.jsx';
+import ReviewCount from "./components/ReviewCount.jsx";
+import ConditionsRatings from "./components/ConditionsRatings.jsx";
+import SearchReviews from "./components/SearchReviews.jsx";
+import DropDownSearch from "./components/DropdownSearch.jsx";
+import ReviewList from "./components/ReviewList.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -31,8 +31,9 @@ class App extends React.Component {
   }
 
   async grabReviews() {
+    const id = Math.floor(Math.random() * 10000000) + 1;
     try {
-      const response = await axios.get('/rooms/reviews/recent');
+      const response = await axios.get(`/rooms/${id}/reviews/recent`);
       this.setupReviews(response.data);
     } catch (error) {
       console.error(error);
@@ -46,14 +47,15 @@ class App extends React.Component {
   }
 
   async queryReviewListings(query) {
+    const id = Math.floor(Math.random() * 10000000) + 1;
     axios
-      .get('/rooms/reviews/filter', { params: { data: query } })
+      .get("/rooms/:id/reviews/filter", { params: { data: query, id: id } })
       .then(res => this.filterReviews(res.data));
   }
 
   async customReviewListings(query) {
     axios
-      .get(`/rooms/reviews/${query}`)
+      .get(`/rooms/:id/reviews/${query}`)
       .then(res => this.filterReviews(res.data));
   }
 
@@ -65,7 +67,7 @@ class App extends React.Component {
       cleanliness: 0,
       location: 0,
       check_in: 0,
-      value: 0,
+      value: 0
     };
     // grab specific condtions rating from each user
     for (let i = 0; i < users.length; i += 1) {
@@ -89,11 +91,11 @@ class App extends React.Component {
   }
 
   render() {
-    const reviews = this.state;
+    const { reviews } = this.state;
     const ratings = this.calculateUserRatings(reviews);
 
     return (
-      <Container className='ReviewsContainer'>
+      <Container className="ReviewsContainer">
         <Row>
           <ReviewCount
             reviewLength={reviews.length}
@@ -103,7 +105,7 @@ class App extends React.Component {
         <Row>
           <ConditionsRatings ratings={ratings} reviews={reviews} />
         </Row>
-        <Row className='bottom-spacing top-spacing btn-toolbar'>
+        <Row className="bottom-spacing top-spacing btn-toolbar">
           <SearchReviews handleSearchInput={this.queryReviewListings} />
           <DropDownSearch handleValueChange={this.customReviewListings} />
         </Row>
@@ -115,4 +117,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('reviews'));
+ReactDOM.render(<App />, document.getElementById("reviews"));

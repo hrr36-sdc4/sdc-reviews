@@ -36,8 +36,8 @@ class Pagination extends React.Component {
   }
 
   setPage(page) {
-    var { items, pageSize } = this.props;
-    var pager = this.state.pager;
+    const { items, pageSize } = this.props;
+    let { pager } = this.state;
 
     if (page < 1 || page > pager.totalPages) {
       return;
@@ -47,10 +47,10 @@ class Pagination extends React.Component {
     pager = this.getPager(items.length, page, pageSize);
 
     // get new page of items from items array
-    var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
+    const pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
 
     // update state
-    this.setState({ pager: pager });
+    this.setState({ pager });
 
     // call change page function in parent component
     this.props.onChangePage(pageOfItems);
@@ -109,7 +109,7 @@ class Pagination extends React.Component {
   }
 
   render() {
-    var pager = this.state.pager;
+    var { pager } = this.state;
 
     if (!pager.pages || pager.pages.length <= 1) {
       // don't display pager if there is only 1 page

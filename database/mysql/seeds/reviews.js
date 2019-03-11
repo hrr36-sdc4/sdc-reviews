@@ -1,10 +1,9 @@
 const faker = require('faker');
 
 const createFakeReview = (iteration, random) => ({
-  review_id: iteration,
   created_at: faker.date.recent(90),
   description: faker.lorem.sentences(),
-  image_url: `https: //s3.amazonaws.com/honeyjar-images/${random}.jpg`,
+  image_url: `https://s3.amazonaws.com/honeyjar-images/${random}.jpg`,
   user_rating: faker.random.number({
     min: 0,
     max: 100,
