@@ -1,16 +1,16 @@
 {
-  "name": "dawn",
-  "version": "",
-  "description": "Front End Capstone Project",
-  "author": "",
-  "license": "",
+  "name": "HoneyJAR",
+  "version": "1.0.0",
+  "description": "System Design Capstone Project",
+  "author": "AC Roselee",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
     "start": "node server/index.js",
     "db:reset": "knex migrate:latest",
-    "seedDb": " knex seed:run",
+    "seedDb": "knex seed:run",
     "test": "jest client/src/ __test__",
     "test:coverage": "jest client/src/ __test__ --coverage",
     "dev:react": "webpack -d --watch",
@@ -31,6 +31,7 @@
     "jquery": "^3.3.1",
     "knex": "^0.16.3",
     "moment": "^2.24.0",
+    "mysql": "^2.16.0",
     "pg": "latest",
     "prop-types": "^15.7.1",
     "react": "^16.8.1",

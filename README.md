@@ -1,44 +1,36 @@
-# Bearbnb
+# HoneyJAR
 
-> Recreation of Airbnb's Customer Reviews Module
+> A Built Backend E-commerce Housing Sharing Site: Reviews
 
-## Related Projects
+### CRUD API Endpoints
 
-- https://github.com/airbnbers/checkout_module
-- https://github.com/airbnbers/Thomas-Slideshow-Module
+---
 
-## Table of Contents
+#### Listing Reviews
 
-1. [Tech Stack](#tech-stack)
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
+`GET` /rooms/:id/reviews/recent
 
-## Tech Stack
+`GET` /rooms/:id/reviews/relevant
 
-- Javascript, React 
-- React-Bootstrap
-- Node.js, Express
-- Postgres, Knex
+`GET` /rooms/:id/reviews/filter
 
-## Usage
+###### CRUD ROUTES FOR PRIMARY RECORD
 
-1. Install project's dependencies.
-2. Open two CLI windows and run the commands npm run dev:react, and npm run start.
-3. Run tests: npm run test.
+Create
+`POST` /rooms/:id/reviews
+Read
+`GET` /rooms/:id/reviews
+Update
+`PUT` /rooms/:id/reviews
+Destroy
+`DELETE` /rooms/:id/reviews
 
-## Requirements
+#### Parameters
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+| Name | Type   | Description             |
+| ---- | ------ | ----------------------- |
+| :id  | Number | Id of the rentable unit |
 
-- Node 6.13.0
+```
 
-
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
 ```
