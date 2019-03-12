@@ -2,7 +2,9 @@ const express = require('express');
 
 const app = express();
 const cors = require('cors');
+const redis = require("redis");
 
+let client = redis.createClient();
 const bodyParser = require('body-parser');
 const {
   findMostRecent,
@@ -34,8 +36,25 @@ app.use(express.static(__dirname + '/../client/dist'));
 // knex.migrate.latest([config]).then(function () {
 //   return knex.seed.run();
 // });
+// create redis middleware
+let redisMiddleware = (req, res, next) => {
+  let key = "__expIress__" + req.originalUrl || req.url;
+  client.get(key, function (err, reply) {
+    if (reply) {
+      res.send(reply);
+    } else {
+      res.sendResponse = res.send;
+      res.send = (body) => {
+        client.set(key, JSON.stringify(body));
+        res.sendResponse(body);
+      }
+      next();
+    }
+  });
+};
 
-app.get('/rooms/:id/reviews/recent', (req, res) => {
+
+app.get('/rooms/:id/reviews/recent', redisMiddleware, (req, res) => {
   let {
     id,
   } = req.params;
@@ -46,7 +65,7 @@ app.get('/rooms/:id/reviews/recent', (req, res) => {
   });
 });
 
-app.get('/rooms/:id/reviews/relevant', (req, res) => {
+app.get('/rooms/:id/reviews/relevant', redisMiddleware, (req, res) => {
   let {
     id,
   } = req.params;
@@ -57,7 +76,7 @@ app.get('/rooms/:id/reviews/relevant', (req, res) => {
   });
 });
 
-app.get('/rooms/:id/reviews/filter', (req, res) => {
+app.get('/rooms/:id/reviews/filter', redisMiddleware, (req, res) => {
   let {
     id
   } = req.params;
@@ -69,7 +88,7 @@ app.get('/rooms/:id/reviews/filter', (req, res) => {
   findFilteredReviews(id, query).then(records => res.status(200).send(records));
 });
 
-app.get('/rooms/:id/reviews', (req, res) => {
+app.get('/rooms/:id/reviews', redisMiddleware, (req, res) => {
   let {
     id
   } = req.params;
@@ -78,7 +97,7 @@ app.get('/rooms/:id/reviews', (req, res) => {
   findAllReviewsPerListing(id).then(records => res.status(200).send(records));
 });
 
-app.post('/rooms/:id/reviews', (req, res) => {
+app.post('/rooms/:id/reviews', redisMiddleware, (req, res) => {
   let {
     id
   } = req.params;
@@ -94,7 +113,7 @@ app.post('/rooms/:id/reviews', (req) => {
   createReviewByListing(id, req).then(res => res.status(200).send(req.body));
 });
 
-app.put('/reviews/:id', (req, res) => {
+app.put('/reviews/:id', redisMiddleware, (req, res) => {
   let {
     id
   } = req.params;
@@ -102,7 +121,7 @@ app.put('/reviews/:id', (req, res) => {
   updateReview(id, req).then(records => res.status(200).send(records));
 });
 
-app.delete('/reviews/:id', (req, res) => {
+app.delete('/reviews/:id', redisMiddleware, (req, res) => {
   console.log(req.params.id)
   let {
     id
