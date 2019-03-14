@@ -1,9 +1,9 @@
 require('newrelic');
 const express = require('express');
-
+const path = require('path');
 const app = express();
 const cors = require('cors');
-const redis = require("redis");
+const redis = require('redis');
 
 let client = redis.createClient();
 const bodyParser = require('body-parser');
@@ -31,16 +31,16 @@ app.use(
     extended: true
   })
 );
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(path.join(__dirname, '/../public')));
 
 // // seed db
 // knex.migrate.latest([config]).then(function () {
 //   return knex.seed.run();
 // });
 // create redis middleware
-let redisMiddleware = (req, res, next) => {
+const redisMiddleware = (req, res, next) => {
   let key = "__expIress__" + req.originalUrl || req.url;
-  client.get(key, function (err, reply) {
+  client.get(key, (err, reply) => {
     if (reply) {
       res.send(reply);
     } else {
@@ -53,6 +53,7 @@ let redisMiddleware = (req, res, next) => {
     }
   });
 };
+
 
 
 app.get('/rooms/:id/reviews/recent', redisMiddleware, (req, res) => {

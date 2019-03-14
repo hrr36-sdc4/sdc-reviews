@@ -1,17 +1,11 @@
 // require("@babel-polyfill");
 var path = require("path");
-var SRC_DIR = path.join(__dirname, "/client/src");
-var DIST_DIR = path.join(__dirname, "/client/dist");
+var DIST_DIR = __dirname + '/public';
 
-module.exports = {
-  entry: `${SRC_DIR}/index.jsx`,
-  output: {
-    filename: "bundle.js",
-    path: DIST_DIR
-  },
+const common = {
+  context: __dirname + "/client",
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -20,8 +14,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
+        use: [{
             loader: "style-loader"
           },
           {
@@ -31,8 +24,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          {
+        use: [{
             loader: "style-loader"
           },
           {
@@ -46,3 +38,26 @@ module.exports = {
     ]
   }
 };
+
+const client = {
+  entry: './client.js',
+  output: {
+    filename: "client_bundle.js",
+    path: DIST_DIR
+  },
+};
+
+const server = {
+  entry: './server.js',
+  output: {
+    filename: "server_bundle.js",
+    path: DIST_DIR,
+    libraryTarget: 'commonjs-module',
+  },
+
+};
+
+module.exports = [
+  Object.assign({}, common, client),
+  Object.assign({}, common, server),
+]
