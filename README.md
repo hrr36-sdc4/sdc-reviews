@@ -30,7 +30,3 @@ Destroy
 | Name | Type   | Description             |
 | ---- | ------ | ----------------------- |
 | :id  | Number | Id of the rentable unit |
-
-```
-
-```
